@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="inner">
+                <div class="h-nav-top">
+                    <div class="nav-top-info">
+                        <p class="name_01" id="name1">파워볼<span>님</span></p>
+                        <p class="name_01" id="name2">1,200<span>원</span></p>
+                        <p class="name_01" id="name3">쪽지함</p>
+                        <p class="name_01" id="name4">공지사항</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="h-nav-middle">
+                    <div class="nav-middle-logo">
+                        <img
+                            src="https://cdn.reebonzkorea.co.kr/uploads/ckeditor/pictures/379424/POWERBALL.png">
+                    </div>
+
+                    <div class="nav-middle-service">
+                        동행파워볼
+                    </div>
+
+                    <div class="nav-middle-menu">
+                        <p class="menu" id="menu01">EOS 5분</p>
+                        <p class="menu" id="menu02">충전환전</p>
+                        <p class="menu" id="menu03">포인트전환+롤링내역</p>
+                        <p class="menu" id="menu04">배팅내역</p>
+                        <p class="menu" id="menu04">커뮤니티</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-nav-bottom">
+                <div class="inner">
+                    <div class="nav-bottom-gnb">
+                        <div class="gnb_01">
+                            <p style="padding-left: 10px;">회차</p>
+                            <span class="gnb_01_round" id="gnb-round">155회</span>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="gnb_02">
+                            <p>남은시간</p>
+                            <span class="gnb_02_time" id="gnb-time">0분53초</span>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="gnb_03">
+                            <p>현 회차 베팅금</p>
+                            <span class="gnb_03_betting" id="gnb-betting" >0원</span>
+                        </div>
+                        <div class="line"></div>
+
+                        <div class="gnb_04">
+                            <p>현 회차 예상당청금</p>
+                            <span class="gnb_04_won" id="gnb-won">0원</span>
+                        </div>
+                        <div class="line"></div>
+
+                        <div class="gnb_05">
+                            <p>당일 총 베팅금</p>
+                            <span class="gnb_05_today" id="gnb-today" >0원</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="inner">
+                <div class="m_game_area">
+                    <div class="game">
+                        <div class="game_title">
+                            <p>파워볼</p>
+                        </div>
+                        <div class="game_button" id="betting_button2">
+                            <img alt="01" class="betting_button" id="power_odd" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128736-e6304f98-aa79-4a73-a0bd-c312703b1f29.png" style="margin-left: 4px;">
+                            <img alt="02" class="betting_button" id="power_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128752-404aedaf-b68d-4c55-98aa-b4a09c86d4f3.png">
+                            <img alt="03" class="betting_button" id="power_odd_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128753-d295e375-097b-4f0b-9352-0b41b336ed83.png">
+                            <img alt="04" class="betting_button" id="power_odd_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128748-7b4ce7ac-16bc-4325-841a-1623b96250cc.png">
+                            <img alt="05" class="betting_button" id="power_even" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128742-247d2e3a-4757-4124-b890-f0294ad81060.png" style="margin-left: 4px;">
+                            <img alt="06" class="betting_button" id="power_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128758-5d58e19e-3884-4060-91c6-d5c623535b70.png">
+                            <img alt="07" class="betting_button" id="power_even_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128755-96b395b6-e0cf-4ce2-8b87-9eca9a3b855b.png">
+                            <img alt="08" class="betting_button" id="power_even_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134128750-53c1146d-f038-43a8-b659-36d3631fb07c.png">
+                        </div>
+                    </div>
+
+                    <div class="game" style="margin-top: 60px;">
+                        <div class="game_title">
+                            <p>일반볼</p>
+                        </div>
+                        <div class="game_button">
+                            <img alt="09" class="betting_button" id="normal_odd" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134132625-5fa679cf-a4aa-4f05-acdc-916e0dcafc12.png" style="margin-left: 4px;">
+                            <img alt="10" class="betting_button" id="normal_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134132655-720c8784-9c9a-4258-b891-0fadf11bd9d5.png">
+                            <img alt="11" class="betting_button" id="normal_odd_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134478993-7420d313-f897-47c2-bb81-12de50ff4a01.png">
+                            <img alt="12" class="betting_button" id="normal_odd_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134478996-b9361719-fdfc-495a-9372-7feda8bd72cf.png">
+                            <img alt="13" class="betting_button" id="normal_even" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134132716-92c222a6-b62d-4e24-96be-b26e52726a03.png"style="margin-left: 4px;">
+                            <img alt="14" class="betting_button" id="normal_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134132731-c7632130-224c-4004-85b8-2abe1635c9f3.png">
+                            <img alt="15" class="betting_button" id="normal_even_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134478997-c93a001f-4120-483f-90fe-c5ad67e2d2f1.png">
+                            <img alt="16" class="betting_button" id="normal_even_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134478999-ac4ea981-408d-4074-8271-e7c9b0e60613.png">
+                            <img alt="17" class="betting_button" id="normal_small" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134133368-847b65c7-78d6-4b62-ab9b-fe9bc0a6b036.png" style="width: 224px; margin-left: 4px;" >
+                            <img alt="18" class="betting_button" id="normal_middle" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134133382-a285eb24-956f-425d-925a-7e895fde2d90.png" style="width: 224px;">
+                            <img alt="19" class="betting_button" id="normal_big" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134133410-faf67154-7740-4758-be86-552c98f0b895.png" style="width: 224px;">
+                        </div>
+                    </div>
+
+                    <div class="game" style="margin-top: 60px;">
+                        <div class="game_title">
+                            <p>파워볼 홀짝 + 일반볼 홀짝 + 일반볼 언오버</p>
+                        </div>
+                        <div class="game_button">
+                            <img alt="20" class="betting_button" id="power_odd_normal_odd_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134619-20e9f6dd-6331-45e5-902f-727cbe367291.png" style="margin-left: 4px;">
+                            <img alt="21" class="betting_button" id="power_odd_normal_odd_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134626-70c62d84-a9f7-443d-a178-ce5e94b6ef76.png">
+                            <img alt="22" class="betting_button" id="power_odd_normal_even_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134629-b0ce0d91-3674-4a94-8c8e-5e79f9956b2f.png">
+                            <img alt="23" class="betting_button" id="power_odd_normal_even_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134513926-ac38dd43-9ab0-46e3-b8bd-9abda25f37f7.png">
+                            <img alt="24" class="betting_button" id="power_even_normal_even_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134636-550c8963-1b21-4159-8a3c-d4657fb44333.png" style="margin-left: 4px;">
+                            <img alt="25" class="betting_button" id="power_even_normal_even_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134639-9ab2aac2-8cf2-45ef-ba01-e070d13555a8.png">
+                            <img alt="26" class="betting_button" id="power_even_normal_odd_over" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134641-10ebee83-aa92-427a-9542-ace526a66075.png">
+                            <img alt="27" class="betting_button" id="power_even_normal_odd_under" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134643-c7d515a3-d0e4-494f-8826-b5a35d523ca3.png">
+                        </div>
+                    </div>
+
+                    <div class="game" style="margin-top: 60px;">
+                        <div class="game_title">
+                            <p>파워볼 숫자</p>
+                        </div>
+                        <div class="game_button">
+                            <img alt="28" class="betting_button" id="power_one" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134984-e195d0b4-9d92-494d-aff0-fa5815c0e827.png" style="width: 69px; margin-left:6px;">
+                            <img alt="29" class="betting_button" id="power_two" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134989-25f7aaa6-dfef-4d6b-b938-67135d5f1f13.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="30" class="betting_button" id="power_three" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134993-b1fb7cb5-e615-4d74-8f1c-dd4dfb2e3b55.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="31" class="betting_button" id="power_four" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134995-f087a1cf-5440-4a78-b5ae-a2fc962d8db9.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="32" class="betting_button" id="power_five" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134997-5d30a4fe-9e92-4e31-be5c-c839c98ae2ac.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="33" class="betting_button" id="power_six" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134134998-576fa84e-bfdf-40fe-8d0b-9029259befb3.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="34" class="betting_button" id="power_seven" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134135002-d203b0c7-acb0-4066-98c4-0d15e88f62b9.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="35" class="betting_button" id="power_eight" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134135005-9212daeb-72aa-4996-afc6-057803daa82f.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="36" class="betting_button" id="power_nine" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134135007-f301e500-f31d-4a15-845c-4d957d6a9f97.png" style="width: 69px; margin-left:-6px;">
+                            <img alt="37" class="betting_button" id="power_zero" onclick="betting(this.id);" src="https://user-images.githubusercontent.com/89179590/134135011-0cecd29a-2f83-4cbe-9025-8559ac0f8898.png" style="width: 69px; margin-left:-6px;">
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="m_betting_area" id="betting">
+                    <div class="betting_01" style="margin-top: 28px;">
+                        <p>배 당 명</p>
+                    </div>
+                    <div class="betting_01_input" style="margin-top: 28px;">
+                        <input type="text" id = "distribution_name" value="" readonly>
+                    </div>
+
+                    <div class="betting_01">
+                        <p>배 당 률</p>
+                    </div>
+                    <div class="betting_01_input" style="margin-top: 10px;">
+                        <input type="text" id = "distribution_rate" value="" readonly>
+                    </div>
+
+                    <div class="betting_01">
+                        <p>베 팅 금</p>
+                    </div>
+                    <div class="betting_01_input" style="margin-top: 10px;">
+                        <input type="text" id = "betting_price" value="" readonly>
+                    </div>
+
+                    <div class="betting_01">
+                        <p>수동베팅금</p>
+                    </div>
+                    <div class="betting_01_input" style="margin-top: 10px;">
+                        <input type="text" id="manual_price" onkeyup="inputWonPrice()" >
+                    </div>
+
+                    <div class="betting_01">
+                        <p>예상당첨금</p>
+                    </div>
+                    <div class="betting_01_input" style="margin-top: 10px;">
+                        <input type="text" id="won_price" readonly>
+                    </div>
+                </div>
+                <div class="m_betting_button">
+                    <img alt="38" class="price_button" id="price_1" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134296791-5035ce85-2f04-4c6a-a2e9-c0ca4c24931f.png">
+                    <img alt="39" class="price_button" id="price_3" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134296798-4ba1d8a6-b225-430f-9b7f-3ac9f53d1a28.png">
+                    <img alt="40" class="price_button" id="price_5" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134296800-6cc8a763-3e1d-4811-82a2-1d3f3d231451.png">
+                    <img alt="41" class="price_button" id="price_7" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134303101-571da3fb-e57c-400a-b103-8e47e86bb135.png">
+                    <img alt="42" class="price_button" id="price_10" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134298232-715ec120-7c6e-4577-bb42-64735cf13f8c.png" style="width:157px; margin-left: 0px;">
+                    <img alt="43" class="price_button" id="price_50" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134298237-00787cf8-8d4f-44ec-b82a-fb417e499fdb.png" style="width:157px; margin-left: 0px;">
+                    <img alt="44" class="price_button" id="price_100" onclick="inputBettingPrice(this.id);" src="https://user-images.githubusercontent.com/89179590/134298240-1a3438b4-9e77-4ed4-bffb-19337b3e51dc.png" style="width:157px; margin-left: 0px;">
+                    <img alt="45" class="reset_button" id="reset" onclick="reset();" src="https://user-images.githubusercontent.com/89179590/134299775-fcd7c8ba-1592-4176-8c3c-50a49e9272ba.png" style="width: 480px; margin: 3px 0;">
+                    <img alt="46" class="enter_button" id="enter" src="https://user-images.githubusercontent.com/89179590/134299959-94a1903f-0631-4a5d-b886-c2eafc1940d5.png" style="width: 480px;">
+
+                </div>
+                <div class="clear"></div>
+             </div>   
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>
+
+
