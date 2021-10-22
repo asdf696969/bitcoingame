@@ -335,7 +335,7 @@ input:focus{
 .main .m_game_area_01, .m_game_area_02{
     float: left;
     width: 336px;
-    height: 1050px;
+    height: 680px;
     margin-bottom: 120px;
     background-color: #151E2E;
     margin-top: 60px;
@@ -375,8 +375,9 @@ input:focus{
 }
 
 .main .game .game_card_backside_01 img{
-    width: 190px;
-    height: 268px;
+    width: 140px;
+    height: 196px;
+    margin: 0 5px;
 }
 
 .main .game .game_card_backside_02 {
@@ -385,8 +386,9 @@ input:focus{
 }
 
 .main .game .game_card_backside_02 img{
-    width: 190px;
-    height: 268px;
+    width: 140px;
+    height: 196px;
+    margin: 0 5px;
 }
 
 
@@ -476,9 +478,8 @@ input:focus{
 
 .playGame_result{
     position: absolute;
-    top: 300px;
+    top: 285px;
     width: 100%;
-    height: 1200px;
     background-color: rgba(255, 255, 255, 0.9);
     /* opacity: 90%; */
 }
@@ -528,27 +529,27 @@ input:focus{
 
 .playGame_result .playGame_01_area .playGame_01 .hand_01{
     position: absolute;
-    top: 87%;
-    left: 24%;
+    top: 76%;
+    left: 58%;
     z-index: 10;
 }
 
 .playGame_result .playGame_01_area .playGame_01 .hand_01 img{
-    width: 220px;
-    height: 120px;
+    width: 160px;
+    height: 87px;
     z-index: 10;
 }
 
 .playGame_result .playGame_02_area .playGame_02 .hand_02{
     position: absolute;
-    top: 87%;
-    left: 24%;
+    top: 76%;
+    left: 58%;
     z-index: 10;
 }
 
 .playGame_result .playGame_02_area .playGame_02 .hand_02 img{
-    width: 220px;
-    height: 120px;
+    width: 160px;
+    height: 87px;
     z-index: 10;
 }
 
@@ -605,31 +606,33 @@ input:focus{
 
 #spade{
     display: inline-block;
-    width: 382px; height: 320px; background-position: 0 0; 
+    width: 290px; height: 243px; background-position: 0 243px; 
 }
 
 #diamond{
     display: inline-block;
-    width: 382px; height: 320px; background-position: 0 960px; 
+    width: 290px; height: 243px; background-position: 0 729px; 
 }
 
 #clover{
     display: inline-block;
-    width: 382px; height: 320px; background-position: 0 320px;
+    width: 290px; height: 243px; background-position: 0 243px;
 }
 
 #heart{
     display: inline-block;
-    width: 382px; height: 320px; background-position: 0 640px;
+    width: 290px; height: 243px; background-position: 0 486px;
 }
 
 #spade, #diamond, #clover, #heart { 
-    background: url(https://user-images.githubusercontent.com/89179590/136638003-6e2a1f58-04c7-4abb-9b08-dc4eaecdb92b.png) no-repeat;
+    background: url(https://user-images.githubusercontent.com/92504296/138436123-babfd0cd-a37a-45c5-8384-a3d0f2d17a14.png) no-repeat;
 }
 
 
 #spade img, #diamond, #clover img, #heart img{
     margin: auto auto;
+    width: 290px;
+    height: 243px;
 }
 
 
@@ -639,38 +642,44 @@ input:focus{
 
 
 #diamond_back{
-    position:absolute;
-    width: 382px; height: 320px;
+    position: absolute;
+    width: 290px;
+    height: 243px;
     background: url(/Image/bitcoin_backside_02_382x320.png);
-    top: 340px;
-    left: 103px;
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
     z-index: 4;
 }
 
 #diamond_ani{
     position:absolute;
-    width: 382px; height: 320px;
+    width: 290px; height: 243px;
     background: url(/Image/bitcoin_backside_02_382x320.png);
-    top: 340px;
-    left: 103px;
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
     z-index: 5;
 }
 
 #heart_back{
     position:absolute;
-    width: 382px; height: 320px;
+    width: 290px;
+    height: 243px;
     background: url(/Image/ethreum_backside_02_382x320.png);
-    top: 340px;
-    left: 103px;
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
     z-index: 4;
 }
 
 #heart_ani{
     position:absolute;
-    width: 382px; height: 320px;
+    width: 290px; height: 243px;
     background: url(/Image/ethreum_backside_02_382x320.png);
-    top: 340px;
-    left: 103px;
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
     z-index: 5;
 }
 

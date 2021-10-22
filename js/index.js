@@ -1,6 +1,7 @@
 let timeId = 0;
 let countId = 0;
 let handId = 0;
+let ethHandId = 0;
 let gameId = 0;
 let cardId = 0;
 let roundId = 0;
@@ -47,8 +48,8 @@ function showTime() {
 timeId = setInterval(showTime, 1000);
 
 //[손 이동 영역]//
-let posx = 24;
-let posy = 87;
+let posx = 58;
+let posy = 76;
 const dx = 0.5;
 const dy = -0.5;
 let first = true;
@@ -70,8 +71,8 @@ function showAniCard(){
   }
 
   const bitcard = document.querySelector('#diamond_ani');
-  bitcard.style.background = 'url(Image/card_list_bitcoin.png) no-repeat';
-  bitcard.style.backgroundPosition = `${xInc * -382}px ${yInc * -320}px`;
+  bitcard.style.background = 'url(Image/card_list_bitcoin_v2.png) no-repeat';
+  bitcard.style.backgroundPosition = `${xInc * -290.7}px ${yInc * -243}px`;
   ++xInc;
 }
 
@@ -89,8 +90,8 @@ function showethAniCard(){
   }
 
   const ethcard = document.querySelector('#heart_ani');
-  ethcard.style.background = 'url(Image/card_list_ethereum.png) no-repeat';
-  ethcard.style.backgroundPosition = `${xInc * -382}px ${yInc * -320}px`;
+  ethcard.style.background = 'url(Image/card_list_ethereum_v2.png) no-repeat';
+  ethcard.style.backgroundPosition = `${xInc * -290.7}px ${yInc * -243}px`;
   ++xInc;
 }
 
@@ -98,8 +99,8 @@ function showethAniCard(){
 function bitHandMove(){
   if(first)
   {
-    posx = 24;
-    posy = 87;
+    posx = 58;
+    posy = 76;
     first = false;
   }
 
@@ -126,8 +127,8 @@ function bitHandMove(){
 function ethHandMove(){
   if(first)
   {
-    posx = 24;
-    posy = 87;
+    posx = 58;
+    posy = 76;
     first = false;
   }
 
@@ -137,7 +138,7 @@ function ethHandMove(){
   if (ethseconds < 1){
     first = true;
     firstAni = true;
-    clearInterval(handId);
+    clearInterval(ethHandId);
     return;
   }
 
@@ -171,28 +172,26 @@ function showCountdown() {
     result.style.display = 'block';
   }
 
-  if(seconds === 59){
+  if(seconds === 58){
     hideSpadeCloverBackCard();
   }
 
-  if(seconds === 59){
+  if(seconds === 58){
     handId = setInterval(bitHandMove, 41);
     hideDiamondBackCard();
     showpatekpillppe();
-  }
 
-  if(seconds === 56){
-    hidepatekPhillppe();
-  }
-
-  if(seconds === 55){
-    handId = setInterval(ethHandMove, 41);
+    ethHandId = setInterval(ethHandMove, 41);
     hideHeartBackCard();
     showrechardMille();
   }
 
-  if(seconds === 52){
+  if(seconds === 55){
+    hidepatekPhillppe();
     hiderechardMille();
+  }
+
+  if(seconds === 52){
     showNumberResult(); 
   }
 
@@ -319,7 +318,7 @@ const setCard = (num, id, ypixel) => {
   // -1은 이미지의 시작이 0부터 될 수 없으니 -1의 값을 넣어야 한다.
   const card = document.querySelector(id);
 
-  card.style.backgroundPosition = `${(num - 1) * -382}px ${ypixel}px`;
+  card.style.backgroundPosition = `${(num - 1) * -290}px ${ypixel}px`;
 };
 
 //[숫자 합 그룹핑]
@@ -334,10 +333,10 @@ function test1(){
   const bitNum = getBitcoinNumber();
   const ethNum = getEthereumNumber();
 
-  setCard(bitNum[0], '#spade', -960);
+  setCard(bitNum[0], '#spade', -729);
   setCard(bitNum[1], '#diamond', 0);
-  setCard(ethNum[0], '#clover', -320);
-  setCard(ethNum[1], '#heart', -640);
+  setCard(ethNum[0], '#clover', -243);
+  setCard(ethNum[1], '#heart', -486);
 }
 
 function isEven(num){
