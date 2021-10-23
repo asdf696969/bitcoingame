@@ -144,7 +144,7 @@ function inputWonPrice() {
 
   // alert("베팅금"+Number(priceText.value));
   // alert("수동베팅금"+Number(manualPrice.value));
-  alert("배당률"+Number(rateText.value));
+  // alert("배당률"+Number(rateText.value));
 }
 
 
