@@ -366,19 +366,19 @@ function showNumberResult(){
 
   if(result["name"] === '비트코인'){
     resultTitle.innerHTML = '비트코인'
-    resultCoin.style.background = 'url(Image/Bitcoin_logo_v2.png) no-repeat';
+    resultCoin.style.background = 'url(../Image/Bitcoin_logo_v2.png) no-repeat';
     resultCoin.style.backgroundPosition = 'center';
     resultNumber.innerHTML = result["value"];
     resultNumber.style.color = "#CC4D52";
   }else if(result["name"] === '이더리움'){
     resultTitle.innerHTML = '이더리움'
-    resultCoin.style.background = 'url(Image/ethereum_logo_v2.png) no-repeat';
+    resultCoin.style.background = 'url(../Image/ethereum_logo_v2.png) no-repeat';
     resultCoin.style.backgroundPosition = 'center';
     resultNumber.innerHTML = result["value"];
     resultNumber.style.color = "#0967C7";
   }else if(result["name"] === 'draw'){
     resultTitle.innerHTML = '무승부'
-    resultCoin.style.background = 'url(Image/draw_v2.png) no-repeat';
+    resultCoin.style.background = 'url(../Image/draw_v2.png) no-repeat';
     resultCoin.style.backgroundPosition = 'center';
     resultNumber.innerHTML = result["value"];
     resultNumber.style.color = "#1E8F7B";
@@ -390,16 +390,16 @@ function showNumberResult(){
   const resultEvenOdd = document.querySelector('#value_result');
 
   if(even && over){
-    resultEvenOdd.style.background = 'url(Image/EvenOver.png) no-repeat';
+    resultEvenOdd.style.background = 'url(../Image/EvenOver.png) no-repeat';
     resultEvenOdd.style.backgroundPosition = 'center';
   }else if(even && !over){
-    resultEvenOdd.style.background = 'url(Image/EvenUnder.png) no-repeat';
+    resultEvenOdd.style.background = 'url(../Image/EvenUnder.png) no-repeat';
     resultEvenOdd.style.backgroundPosition = 'center';
   }else if(!even && over){
-    resultEvenOdd.style.background = 'url(Image/OddOver.png) no-repeat';
+    resultEvenOdd.style.background = 'url(../Image/OddOver.png) no-repeat';
     resultEvenOdd.style.backgroundPosition = 'center';
   }else{
-    resultEvenOdd.style.background = 'url(Image/OddUnder.png) no-repeat';
+    resultEvenOdd.style.background = 'url(../Image/OddUnder.png) no-repeat';
     resultEvenOdd.style.backgroundPosition = 'center';
   }
 }
