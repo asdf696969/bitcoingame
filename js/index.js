@@ -71,7 +71,7 @@ function showAniCard(){
   }
 
   const bitcard = document.querySelector('#diamond_ani');
-  bitcard.style.background = 'url(Image/card_list_bitcoin_v2.png) no-repeat';
+  bitcard.style.background = 'url(../Image/card_list_bitcoin_v2.png) no-repeat';
   bitcard.style.backgroundPosition = `${xInc * -290.7}px ${yInc * -243}px`;
   ++xInc;
 }
@@ -90,7 +90,7 @@ function showethAniCard(){
   }
 
   const ethcard = document.querySelector('#heart_ani');
-  ethcard.style.background = 'url(Image/card_list_ethereum_v2.png) no-repeat';
+  ethcard.style.background = 'url(../Image/card_list_ethereum_v2.png) no-repeat';
   ethcard.style.backgroundPosition = `${xInc * -290.7}px ${yInc * -243}px`;
   ++xInc;
 }

@@ -646,7 +646,7 @@ input:focus{
     position: absolute;
     width: 290px;
     height: 243px;
-    background: url(/Image/bitcoin_backside_02_382x320.png);
+    background: url(../Image/bitcoin_backside_02_382x320.png);
     background-size: 290px 243px;
     top: 16px;
     left: 297px;
@@ -656,7 +656,7 @@ input:focus{
 #diamond_ani{
     position:absolute;
     width: 290px; height: 243px;
-    background: url(/Image/bitcoin_backside_02_382x320.png);
+    background: url(../Image/bitcoin_backside_02_382x320.png);
     background-size: 290px 243px;
     top: 16px;
     left: 297px;
@@ -667,7 +667,7 @@ input:focus{
     position:absolute;
     width: 290px;
     height: 243px;
-    background: url(/Image/ethreum_backside_02_382x320.png);
+    background: url(../Image/ethreum_backside_02_382x320.png);
     background-size: 290px 243px;
     top: 16px;
     left: 297px;
@@ -677,7 +677,7 @@ input:focus{
 #heart_ani{
     position:absolute;
     width: 290px; height: 243px;
-    background: url(/Image/ethreum_backside_02_382x320.png);
+    background: url(../Image/ethreum_backside_02_382x320.png);
     background-size: 290px 243px;
     top: 16px;
     left: 297px;
@@ -688,7 +688,7 @@ input:focus{
     text-align: center;
     height: 62px;
     margin-top:35px;
-    background:url(/Image/EvenOver.png) no-repeat;
+    background:url(../Image/EvenOver.png) no-repeat;
     background-position: center;
 }
 
