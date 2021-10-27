@@ -54,9 +54,9 @@ let xInc = 0;
 let yInc = 0;
 
 const bithand = document.querySelector('#patekPhilippe');
-const ethhand = document.querySelector('#rechardMille');
+const riphand = document.querySelector('#rechardMille');
 bithand.style.left = `${posx}%`;
-ethhand.style.left = `${posx}%`;
+riphand.style.left = `${posx}%`;
 let timerCount = 0;
 
 function bitHandMove(){
@@ -64,7 +64,7 @@ function bitHandMove(){
     timerCount = 0;
     posy = 7.1;
     bithand.style.top = `${posy}%`;
-    ethhand.style.top = `${posy}%`;
+    riphand.style.top = `${posy}%`;
     hidepatekPhillppe();
     hiderechardMille();
     clearInterval(bitHandId);
@@ -73,7 +73,7 @@ function bitHandMove(){
 
   posy += dy;
   bithand.style.top = `${posy}%`;
-  ethhand.style.top = `${posy}%`;
+  riphand.style.top = `${posy}%`;
   ++timerCount;
 }
 
@@ -164,9 +164,9 @@ function showCurrentround() {
   const bitTotalRound = document.querySelector('#bitRound');
   bitTotalRound.innerHTML = bitRound;
 
-  const ethRound = '제 ' + ((hours * fullMinutes) + minutes) + '회차'
-  const ethTotalRound = document.querySelector('#ethRound');
-  ethTotalRound.innerHTML = ethRound;
+  const ripRound = '제 ' + ((hours * fullMinutes) + minutes) + '회차'
+  const ripTotalRound = document.querySelector('#ripRound');
+  ripTotalRound.innerHTML = ripRound;
 }
 roundId = setInterval(showCurrentround, 1000);
 
@@ -194,7 +194,7 @@ function getBitcoinNumber(){
   return coinNumber('42,192.3');
 }
 
-function getEthereumNumber(){
+function getRippleNumber(){
   return coinNumber('2,909.71');
 }
 
@@ -233,12 +233,12 @@ const setAddNumber = (num, id) => {
 //[카드 결과값 노출 영역]
 function getCardResult(){
   const bitNum = getBitcoinNumber();
-  const ethNum = getEthereumNumber();
+  const ripNum = getRippleNumber();
 
   setCard(bitNum[0], '#spade', 0);
   setCard(bitNum[1], '#diamond', -185);
-  setCard(ethNum[0], '#clover', 0);
-  setCard(ethNum[1], '#heart', -185);
+  setCard(ripNum[0], '#clover', 0);
+  setCard(ripNum[1], '#heart', -185);
 }
 
 function isEven(num){
@@ -257,10 +257,10 @@ function isOver(num){
 
 function showNumberResult(){
   const bitNum = getBitcoinNumber();
-  const ethNum = getEthereumNumber();
+  const ripNum = getRippleNumber();
 
   setAddNumber(bitNum, '#playGame_01_number');
-  setAddNumber(ethNum, '#playGame_02_number');
+  setAddNumber(ripNum, '#playGame_02_number');
   const resultTitle = document.querySelector('#result_title')
   const resultCoin = document.querySelector('.betting_result_coin')
   const resultNumber = document.querySelector('#number_result');
@@ -274,7 +274,7 @@ function showNumberResult(){
     resultNumber.style.color = "#CC4D52";
   }else if(result["name"] === '이더리움'){
     resultTitle.innerHTML = '이더리움'
-    resultCoin.style.background = 'url(./Image/ethereum_logo_v2.png) no-repeat';
+    resultCoin.style.background = 'url(./Image/Ripple_logo_v2.png) no-repeat';
     resultCoin.style.backgroundPosition = 'center';
     resultNumber.innerHTML = result["value"];
     resultNumber.style.color = "#0967C7";
@@ -347,27 +347,27 @@ function gameCountdown() {
 
 function getGameValue(){
   const bitNum = getBitcoinNumber();
-  const ethNum = getEthereumNumber();  
+  const ripNum = getRippleNumber();  
 
   const bitSum = String(bitNum[0] + bitNum[1]);
-  const ethSum = String(ethNum[0] + ethNum[1]);
+  const ripSum = String(ripNum[0] + ripNum[1]);
   bitResult = bitSum[bitSum.length -1];
-  ethResult = ethSum[ethSum.length -1];
+  ripResult = ripSum[ripSum.length -1];
 
   let resultObject =  { 
     "name" : "",
     "value" : 0
   };
 
-  if (bitResult > ethResult){
+  if (bitResult > ripResult){
     resultObject["name"] = '비트코인';
     resultObject["value"] = bitResult;
-  }else if(bitResult === ethResult){
+  }else if(bitResult === ripResult){
     resultObject["name"] = 'draw';
     resultObject["value"] = bitResult;
   }else{
     resultObject["name"] = '이더리움';
-    resultObject["value"] = ethResult;
+    resultObject["value"] = ripResult;
   }
 
   return resultObject;

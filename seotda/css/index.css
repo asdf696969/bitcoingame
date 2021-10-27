@@ -644,48 +644,6 @@ input:focus{
 }
 
 
-#diamond_back{
-    position: absolute;
-    width: 120px;
-    height: 185px;
-    background: url(../Image/bitcoin_backside_02_382x320.png);
-    background-size: 290px 243px;
-    top: 16px;
-    left: 297px;
-    z-index: 4;
-}
-
-/* #diamond_ani{
-    position:absolute;
-    width: 290px; height: 243px;
-    background: url(../Image/bitcoin_backside_02_382x320.png);
-    background-size: 290px 243px;
-    top: 16px;
-    left: 297px;
-    z-index: 5;
-} */
-
-#heart_back{
-    position:absolute;
-    width: 290px;
-    height: 243px;
-    background: url(../Image/ethreum_backside_02_382x320.png);
-    background-size: 290px 243px;
-    top: 16px;
-    left: 297px;
-    z-index: 4;
-}
-
-/* #heart_ani{
-    position:absolute;
-    width: 290px; height: 243px;
-    background: url(../Image/ethreum_backside_02_382x320.png);
-    background-size: 290px 243px;
-    top: 16px;
-    left: 297px;
-    z-index: 5;
-} */
-
 #value_result{
     text-align: center;
     height: 62px;
