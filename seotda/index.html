@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="inner">
+                <div class="h-nav-top">
+                    <div class="nav-top-info">
+                        <p class="name_01" id="name1">삼팔광땡<span>님</span></p>
+                        <p class="name_01" id="name2">1,200<span>원</span></p>
+                        <p class="name_01" id="name3">쪽지함</p>
+                        <p class="name_01" id="name4">공지사항</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="h-nav-gamelist">
+                    <a class="game_01" id="game1" href="./index.html">바카라</a>
+                    <a class="game_01" id="game2">섯다</a>
+                    <a class="game_01" id="game3">달팽이</a>
+                    <a class="game_01" id="game4" href="./powerball/index.html" style="margin-right: 4px;">파워볼</a>
+                </div>
+
+                <div class="h-nav-middle">
+                    <div class="nav-middle-logo">
+                        <img
+                            src="./Image/SEOTDA.png">
+                    </div>
+
+                    <div class="nav-middle-service">
+                        섯다게임
+                    </div>
+
+                    <div class="nav-middle-menu">
+                        <p class="menu" id="menu01">EOS 5분</p>
+                        <p class="menu" id="menu02">충전환전</p>
+                        <p class="menu" id="menu03">포인트전환+롤링내역</p>
+                        <p class="menu" id="menu04">배팅내역</p>
+                        <p class="menu" id="menu04">커뮤니티</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-nav-bottom">
+                <div class="inner">
+                    <div class="nav-bottom-gnb">
+                        <div class="gnb_01">
+                            <input class="date" id="date" style="padding-left: 10px; border:none;" readonly></input>
+                            <input class="time" id="time" style="border:none;" class="gnb_01_round"></input>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="gnb_02">
+                            <p>Investing 기준 끝 두자리 합수 결과</p>
+                        </div>
+
+                        <!-- <div class="gnb_03">
+                            <p>현 회차 베팅금</p>
+                            <span class="gnb_03_betting" id="gnb-betting" >0원</span>
+                        </div>
+                        <div class="line"></div>
+
+                        <div class="gnb_04">
+                            <p>현 회차 예상당청금</p>
+                            <span class="gnb_04_won" id="gnb-won">0원</span>
+                        </div>
+                        <div class="line"></div>
+
+                        <div class="gnb_05">
+                            <p>당일 총 베팅금</p>
+                            <span class="gnb_05_today" id="gnb-today" >0원</span>
+                        </div> -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="inner">
+
+
+                <div class="m_game_area_info">
+                    <div class="game_info">
+
+                        <div class="game_info_round">
+                            <p style="margin-left: 83px;">회차</p>
+                             <span id="game_currentround" style="margin-left: 40px; color: #0967c7;"></span>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="game_info_time">
+                            <p style="margin-left: 83px;">남은시간</p>
+                            <span id="game_countdown" style="margin-left: 35px; color: #CC4D52;"></span>
+                            
+                            
+                            <img id="sound_image" src="https://user-images.githubusercontent.com/89179590/135798370-eec4a962-bd95-454a-96d8-957152951bf0.png" onclick="playSound();"> 
+                            <audio autoplay id="game_sound">
+                                <source src="/baccarat/sound/game_sound.mp3">
+                            </audio>
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="m_game_area_01">
+                    <div class="game">
+                        <div class="game_title">
+                            <p>비트코인</p>
+                        </div>
+                        <div class="game_coin_img">
+                            <img src="./Image/Bitcoin_logo.png">
+                        </div>
+                        <div class="game_bitcoin_btc">
+                            <span>42,197.6</span>
+                        </div>
+                        <div class="game_round">
+                            <p id="bitRound">제 132회차</p>
+                        </div>
+                        <div class="game_card_backside_01">
+                            <img src="./Image/card_backside_bitcoin.png">
+                            <img src="./Image/card_backside_bitcoin.png">
+                        </div>
+                        <!-- <div class="game_card_backside_01" style="margin-top: 40px;">
+                            <img src="./Image/card_backside_01.png">
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="m_game_area_02" style="margin-left: 8px;">
+                    <div class="game">
+                        <div class="game_title">
+                            <p>이더리움</p>
+                        </div>
+                        <div class="game_coin_img">
+                            <img src="./Image/Ethereum_logo.png">
+                        </div>
+                        <div class="game_bitcoin_btc_02">
+                            <span>2,909.65</span>
+                        </div>
+                        <div class="game_round">
+                            <p id="ethRound">제 132회차</p>
+                        </div>
+                        <div class="game_card_backside_02">
+                            <img src="./Image/card_backside_ethereum.png">
+                            <img src="./Image/card_backside_ethereum.png">
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="m_betting_result_area" id="betting">
+
+                    <div class="betting_result_round" style="margin-top: 28px;">
+                        <span id="betting_result_round"></span>
+                    </div>
+                    
+                    <div class="betting_result_title">
+                        <p id="result_title">비트코인</p>
+                    </div>
+
+                    <div class="betting_result_coin">
+                        <!-- <img src="./Image/Bitcoin_logo.png"> -->
+                    </div>
+
+                    <div class="betting_result_number">
+                        <span id="number_result">8</span>
+                    </div>
+
+                    <div id="value_result">
+
+                    </div>
+
+                </div>
+
+                <div class="clear"></div>
+             </div>   
+        </div>
+        <div class="playGame_result" id="resultWindow"  >
+                <div class="playGame_01_area">
+                    <div class="playGame_01">
+                        <div class="playGame_01_logo">
+                            <img src="https://user-images.githubusercontent.com/89179590/136328021-aef0ef53-0597-4918-9cfe-1768f84cd085.png">
+                        </div>
+                        <div class="playGame_01_resultNumber">
+                            <span id="playGame_01_number">?</span>
+                        </div>
+                        <div class="playGame_coinName">
+                            <span>비트코인</span>
+                        </div>
+                        <div class="playGame_01_cardBack">
+                            <div id="spade">
+                                <img id="spade_back" src="./Image/card_backside_bitcoin.png">
+                            </div>
+
+                            <div class="hand_01" id="patekPhilippe">
+                                <img src="./Image/hand_bitcoin.png">
+                            </div>
+
+                            <div id="diamond">
+                            </div>
+
+                            <!-- <div id="diamond_back">
+                                
+                            </div> -->
+
+                            <!-- <div id="diamond_ani">
+
+                            </div> -->
+                            
+                            <!-- <img src="https://user-images.githubusercontent.com/89179590/135401776-0594d8e4-e71a-427f-8ab5-a99a043c7c54.png" id="dia"> -->
+                        </div>
+                        <div class="playGame_01_cardfront">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playGame_02_area">
+                    <div class="playGame_02">
+                        <div class="playGame_02_logo">
+                            <img src="https://user-images.githubusercontent.com/89179590/136328029-bafa2466-3aa8-445c-aeb9-247ae3b7d28f.png">
+                        </div>
+                        <div class="playGame_02_resultNumber">
+                            <span id="playGame_02_number">?</span>
+                        </div>
+                        <div class="playGame_coinName">
+                            <span>이더리움</span>
+                        </div>
+                        <div class="playGame_02_cardBack">
+                            <div id="clover">
+                                <img id="clover_back" src="./Image/card_backside_ethereum.png">
+                            </div>
+
+                            <div class="hand_02" id="rechardMille">
+                                <img src="./Image/hand_ethereum.png">
+                            </div>
+
+                            <div id="heart">
+                            </div>
+
+                            <!-- <div id="heart_back">
+                                
+                            </div> -->
+
+                            <!-- <div id="heart_ani">
+
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="playGame_result_round">
+                    <span id="playGame_result_round">1363회차</span>
+                </div>
+
+                <div class="playGame_result_time">
+                    <span id="playGame_result_time">10초</span>
+                </div>
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>
+

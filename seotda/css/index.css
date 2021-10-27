@@ -1,0 +1,696 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 900;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+}
+/* 
+img{
+    width: 25%;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR';
+}
+
+.inner {
+    position: relative;
+    width: 1180px;
+    height: auto;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+a:link{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #666;
+}
+
+.clear {
+    clear: both;
+    content: '';
+}
+
+
+input:focus{
+    outline: none;
+}
+
+.line {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    height: 16px;
+    margin: 0 25px 12px 25px;
+    background-color: #555;
+}
+
+
+/* [헤더 영역] */
+.header {
+    position: relative;
+    min-width: 1180px;
+    width: 100%;
+    height: auto;
+    background-color: #1F2A3C;
+}
+
+.header .h-nav-top {
+    position: relative;
+    height: 80px;
+    background-color: #1F2A3C;
+
+}
+
+.header .h-nav-top .nav-top-info {
+    position: absolute;
+    width: 580px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    vertical-align: middle;
+    bottom: 0;
+    right: 0;
+}
+
+.header .h-nav-top .nav-top-info p {
+    padding-top: 8px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    width: 120px;
+}
+
+.header .h-nav-top .nav-top-info p:first-child {
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+.header .h-nav-gamelist{
+    position: relative;
+    height: 80px;
+    background-color: #1F2A3C;
+    text-align: right;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+
+
+.header .h-nav-gamelist a{
+    display: inline-block;
+    margin: 40px 0px 0px 70px;
+    text-decoration: none;
+}
+
+
+.header .h-nav-middle {
+    position: relative;
+    height: 85px;
+    background-color: #1F2A3C;
+}
+
+.header .h-nav-middle .nav-middle-logo {
+    float: left;
+    margin-top: 23.5px;
+    width: 254px;
+}
+
+.header .h-nav-middle .nav-middle-service {
+    float: left;
+    width: 125px;
+    height: 40px;
+    background-color: #CA4B69;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 38px;
+    margin-left: 98px;
+    margin-top: 23px;
+    border-radius: 5px;
+}
+
+.header .h-nav-middle .nav-middle-menu {
+    float: left;
+    margin-top: 30px;
+}
+
+.header .h-nav-middle .nav-middle-menu p {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    color: #f4f4f4;
+    margin-left: 58px;
+}
+
+.header .h-nav-middle .nav-middle-menu p:first-child {
+    margin-left: 30px;
+}
+
+.header .h-nav-bottom {
+    position: relative;
+    height: 40px;
+    background-color: #142033;
+}
+
+
+.header .h-nav-bottom .nav-bottom-gnb #date{
+    float: left;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 5px;
+    background-color: #142033;
+    width: 190px;
+}
+
+
+.header .h-nav-bottom .nav-bottom-gnb #time{
+    float: right;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 5px;    
+    background-color: #142033;
+    width: 100px;
+}
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_01{
+    /* font-size: 16px;
+    font-weight: 400;
+    color: #0967C7 */
+    display: inline-block;
+    width: 320px;
+    height: 40px;
+
+}
+
+
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_02{
+    /* font-size: 16px;
+    font-weight: 400;
+    color: #0967C7 */
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+    text-align: right;
+}
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_02 p{
+    float: left;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    margin-top: 7px;
+}
+
+/* .header .h-nav-bottom .nav-bottom-gnb .gnb_03{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+}
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_04{
+    display: inline-block;
+    width: 225px;
+    height: 40px;
+}
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_05{
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+
+} */
+
+
+/* [메인 영역] */
+
+.main {
+    position: relative;
+    min-width: 1180px;
+    width: 100%;
+    height: 1200px;
+    background-color: #0E1520;
+}
+
+.main .m_game_area_info{
+    position:relative;
+    height: 100px;
+    background-color: #0E1520;
+}
+
+.main .m_game_area_info .game_info{
+    position: absolute;
+    width: 680px;
+    height: 44px;
+    background-color: #141D2D;
+    margin-top: 80px;
+}
+
+
+.main .m_game_area_info .game_info .line{
+    display: inline-block;
+    width: 1px;
+    /* height: 10px; */
+    height: 20px;
+    margin: 0 0 8px 0;
+    background-color: #555;
+}
+
+.main .m_game_area_info .game_info .game_info_round{
+    display: inline-block;
+    width: 338px;
+}
+
+.main .m_game_area_info .game_info p{
+    float: left;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 4px;
+
+}
+
+.main .m_game_area_info .game_info span{
+    float: left;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.main .m_game_area_info .game_info .game_info_time{
+    display: inline-block;
+    position: relative;
+    width: 330px;
+}
+
+.main .m_game_area_info .game_info .game_info_time img{
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+
+
+.main .m_game_area_01, .m_game_area_02{
+    float: left;
+    width: 336px;
+    height: 680px;
+    margin-bottom: 120px;
+    background-color: #151E2E;
+    margin-top: 60px;
+    
+}
+
+.main .game .game_coin_img{
+    margin-top: 50px;
+    text-align: center;
+
+}
+
+.main .game .game_coin_img img{
+    width: 160px;
+    height: 160px;
+}
+
+.main .game .game_bitcoin_btc{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #CC4D52;
+}
+
+.main .game .game_round {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+
+}
+
+.main .game .game_card_backside_01 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.main .game .game_card_backside_01 img{
+    width: 120px;
+    height: 185px;
+    margin: 0 10px;
+}
+
+.main .game .game_card_backside_02 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.main .game .game_card_backside_02 img{
+    width: 120px;
+    height: 185px;
+    margin: 0 10px;
+}
+
+
+
+
+.main .game .game_title{
+    width: 336px;
+    height: 38px;
+    background-color: #1F2A3C;
+    text-align: center;
+
+}
+
+.main .game .game_title p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    padding-top: 5px;
+}
+
+.main .m_game_area_02 .game_bitcoin_btc_02{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #0967C7;
+}
+
+
+
+.main .m_betting_result_area{
+    float: right;
+    width: 480px;
+    height: 530px;
+    background-color:#1B2435;
+    margin-top: 60px;
+    text-align: center;
+}
+
+
+
+
+
+/* .main .m_betting_result_area .betting_01::after{
+    content: '';
+    display: block;
+    clear: both;
+} */
+
+
+.main .m_betting_result_area .betting_result_round span{
+    /* position: absolute; */
+    display: inline-block;
+    width: 230px;
+    height: 36px;
+    border: 1px solid #263245;
+    background-color: #151E2E;
+    margin-top: 30px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.main .m_betting_result_area .betting_result_title{
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main .m_betting_result_area .betting_result_coin{
+    margin-top: 10px;
+    text-align: center;
+    height: 180px;
+    background:url(/Image/Bitcoin_logo_v2.png) no-repeat;
+    background-position: center;
+}
+
+
+.main .m_betting_result_area .betting_result_number{
+    font-size: 22px;
+    font-weight: 700;
+    color : #CC4D52;
+    text-align: center;
+
+}
+
+.playGame_result{
+    position: absolute;
+    top: 285px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* opacity: 90%; */
+}
+
+.playGame_result .playGame_result_round{
+    position: absolute;
+    margin-top: 65px;
+    right: 48%;
+    
+}
+
+.playGame_result .playGame_result_round span{
+    font-size: 50px;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+
+.playGame_result .playGame_01_area, .playGame_02_area{
+    float: left;
+    width: 50%;
+    height: 900px;
+}
+
+.playGame_result .playGame_01_area .playGame_01_logo img, .playGame_02_area .playGame_02_logo img{
+    width: 140px;
+    height: 140px;
+}
+
+
+
+.playGame_result .playGame_01_area .playGame_01{
+    float: right;
+    width: 590px;
+    height: 800px;
+    text-align: center;
+}
+
+.playGame_result .playGame_01_area .playGame_01 .hand_01{
+    position: absolute;
+    top: 7.1%;
+    left: 43.8%;
+    z-index: 10;
+}
+
+.playGame_result .playGame_01_area .playGame_01 .hand_01 img{
+    width: 251px;
+    height: 390px;
+    z-index: 10;
+}
+
+.playGame_result .playGame_02_area .playGame_02 .hand_02{
+    position: absolute;
+    top: 7.1%;
+    left: 43.8%;
+    z-index: 10;
+}
+
+.playGame_result .playGame_02_area .playGame_02 .hand_02 img{
+    width: 251px;
+    height: 390px;
+    z-index: 10;
+}
+
+.playGame_result .playGame_02_area .playGame_02{
+    float: left;
+    width: 590px;
+    height: 800px;
+    text-align: center;
+}
+
+.playGame_result .playGame_01_area .playGame_01 .playGame_01_logo, .playGame_02_logo{
+    margin-top: 130px;
+}
+
+.playGame_result .playGame_01_area .playGame_01 .playGame_01_resultNumber{
+    font-size: 50px;
+    font-weight: 600;
+    color: #CC4D52;
+}
+
+.playGame_result .playGame_02_area .playGame_02 .playGame_02_resultNumber{
+    font-size: 50px;
+    font-weight: 600;
+    color: #0967C7;
+}
+.playGame_result .playGame_01_area .playGame_01_cardBack{
+    position: relative;
+}
+
+.playGame_result .playGame_02_area .playGame_02_cardBack{
+    position: relative;
+}
+
+
+.playGame_result .playGame_01_area .playGame_01_cardBack, .playGame_02_area .playGame_02_cardBack{
+    margin-top: 30px;
+}
+
+.playGame_result .playGame_coinName{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.playGame_result .playGame_result_time{
+    position: absolute;
+    margin-top: 150px;
+    right: 48.5%;
+}
+
+.playGame_result .playGame_result_time span{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+#spade{
+    display: inline-block;
+    width: 120px; height: 185px; background-position: 0 243px; 
+}
+
+#diamond{
+    display: inline-block;
+    width: 120px; height: 185px; background-position: 0 729px; 
+}
+
+#clover{
+    display: inline-block;
+    width: 120px; height: 185px; background-position: 0 243px;
+}
+
+#heart{
+    display: inline-block;
+    width: 120px; height: 185px; background-position: 0 486px;
+}
+
+
+#spade, #diamond, #clover, #heart { 
+    background: url(../Image/card_frontside.png) no-repeat;
+    margin: 0 15px;
+}
+
+
+#spade img, #diamond, #clover img, #heart img{
+    width: 120px;
+    height: 185px;
+}
+
+
+#diamond, #heart{
+    margin-top: 15px;
+}
+
+
+#diamond_back{
+    position: absolute;
+    width: 120px;
+    height: 185px;
+    background: url(../Image/bitcoin_backside_02_382x320.png);
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
+    z-index: 4;
+}
+
+/* #diamond_ani{
+    position:absolute;
+    width: 290px; height: 243px;
+    background: url(../Image/bitcoin_backside_02_382x320.png);
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
+    z-index: 5;
+} */
+
+#heart_back{
+    position:absolute;
+    width: 290px;
+    height: 243px;
+    background: url(../Image/ethreum_backside_02_382x320.png);
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
+    z-index: 4;
+}
+
+/* #heart_ani{
+    position:absolute;
+    width: 290px; height: 243px;
+    background: url(../Image/ethreum_backside_02_382x320.png);
+    background-size: 290px 243px;
+    top: 16px;
+    left: 297px;
+    z-index: 5;
+} */
+
+#value_result{
+    text-align: center;
+    height: 62px;
+    margin-top:35px;
+    background:url(../Image/EvenOver.png) no-repeat;
+    background-position: center;
+}
+

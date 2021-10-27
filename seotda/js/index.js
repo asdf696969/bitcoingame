@@ -47,55 +47,33 @@ function showTime() {
 timeId = setInterval(showTime, 1000);
 
 //[손 이동 영역]//
-let posx = 58;
-let posy = 76;
-const dx = 0.5;
-const dy = -0.5;
+let posx = 43.8;
+let posy = 7.1;
+const dy = 0.8;
 let xInc = 0;
 let yInc = 0;
 
-const bitcard = document.querySelector('#diamond_ani');
-const ethcard = document.querySelector('#heart_ani');
-bitcard.style.background = 'url(./Image/card_list_bitcoin_v2.png) no-repeat';
-ethcard.style.background = 'url(./Image/card_list_ethereum_v2.png) no-repeat';
 const bithand = document.querySelector('#patekPhilippe');
 const ethhand = document.querySelector('#rechardMille');
-
-function showAniCard(){
-  if(xInc === 7){
-    xInc = 0;
-    ++yInc;
-  }
-  
-  bitcard.style.backgroundPosition = `${xInc * -290.7}px ${yInc * -243}px`;
-  ethcard.style.backgroundPosition = `${xInc * -290.7}px ${yInc * -243}px`;
-  ++xInc;
-
-  posx += dx;
-  posy += dy;
-  bithand.style.left = `${posx}%`;
-  bithand.style.top = `${posy}%`;
-  ethhand.style.left = `${posx}%`;
-  ethhand.style.top = `${posy}%`;
-}
-
+bithand.style.left = `${posx}%`;
+ethhand.style.left = `${posx}%`;
 let timerCount = 0;
 
 function bitHandMove(){
-  if (timerCount == 49){
+  if (timerCount == 120){
     timerCount = 0;
-    xInc = 0;
-    yInc = 0;
-    posx = 58;
-    posy = 76;
-    bithand.style.left = `${posx}%`;
+    posy = 7.1;
     bithand.style.top = `${posy}%`;
-    ethhand.style.left = `${posx}%`;
     ethhand.style.top = `${posy}%`;
+    hidepatekPhillppe();
+    hiderechardMille();
     clearInterval(bitHandId);
+    return;
   }
 
-  showAniCard();
+  posy += dy;
+  bithand.style.top = `${posy}%`;
+  ethhand.style.top = `${posy}%`;
   ++timerCount;
 }
 
@@ -108,30 +86,20 @@ function showCountdown() {
   const game = document.querySelector('#game_countdown'); // 객체 얻어오기
   game.innerHTML = count; //innerHTML = Html 안에 넣겠다
 
-
 //[카드 쪼는 창 뜨게하기 영역]//
   const result = document.querySelector('#resultWindow');
   
   if(seconds === 60){
     getCardResult();
-    showBackCard();
-    showAniBackCard()
+    showpatekpillppe();
+    showrechardMille();
+    gameCountdown();
     gameId = setInterval(gameCountdown, 1000);
     result.style.display = 'block';
   }
   else if(seconds === 58){
     hideSpadeCloverBackCard();
-    bitHandId = setInterval(bitHandMove, 80);
-    hideDiamondBackCard();
-    showpatekpillppe();
-
-    hideHeartBackCard();
-    showrechardMille();
-  }
-  else if(seconds === 54){
-    hidepatekPhillppe();
-    hiderechardMille();
-    hideAniBackCard();
+    bitHandId = setInterval(bitHandMove, 41);
   }
   else if(seconds === 52){
     showNumberResult(); 
@@ -139,30 +107,19 @@ function showCountdown() {
   else if(seconds === 48){
     result.style.display = 'none';
     returnshowNumberResult();
+    showBackCard();
+    
   }
 }
 
 //카드 사라지고 나타나게 하기
-function showAniBackCard(){
-  document.querySelector('#diamond_ani').style.display = 'block';
-  document.querySelector('#heart_ani').style.display = 'block';
-}
-
-function hideAniBackCard(){
-  document.querySelector('#diamond_ani').style.display = 'none';
-  document.querySelector('#heart_ani').style.display = 'none';
-}
-
-function hideDiamondBackCard(){
-  document.querySelector('#diamond_back').style.display = 'none';
-}
-
-function hideHeartBackCard(){
-  document.querySelector('#heart_back').style.display = 'none';
-}
-
 function showObject(id){
   document.querySelector(id).style.display = 'block';
+}
+
+function showBackCard(){
+  showObject('#spade_back');
+  showObject('#clover_back');
 }
 
 function hideObject(id){
@@ -174,12 +131,6 @@ function hideSpadeCloverBackCard(){
   hideObject('#clover_back');
 }
 
-function showBackCard(){
-  showObject('#spade_back');
-  showObject('#diamond_back');
-  showObject('#clover_back');
-  showObject('#heart_back');
-}
 
 //손 사라지고 나타나게 하기
 function hidepatekPhillppe(id){
@@ -269,7 +220,7 @@ const setCard = (num, id, ypixel) => {
   // -1은 이미지의 시작이 0부터 될 수 없으니 -1의 값을 넣어야 한다.
   const card = document.querySelector(id);
 
-  card.style.backgroundPosition = `${(num - 1) * -290}px ${ypixel}px`;
+  card.style.backgroundPosition = `${(num - 1) * -120}px ${ypixel}px`;
 };
 
 //[숫자 합 그룹핑]
@@ -284,10 +235,10 @@ function getCardResult(){
   const bitNum = getBitcoinNumber();
   const ethNum = getEthereumNumber();
 
-  setCard(bitNum[0], '#spade', -729);
-  setCard(bitNum[1], '#diamond', 0);
-  setCard(ethNum[0], '#clover', -243);
-  setCard(ethNum[1], '#heart', -486);
+  setCard(bitNum[0], '#spade', 0);
+  setCard(bitNum[1], '#diamond', -185);
+  setCard(ethNum[0], '#clover', 0);
+  setCard(ethNum[1], '#heart', -185);
 }
 
 function isEven(num){
@@ -381,14 +332,15 @@ countId = setInterval(showResultround, 1000);
 //[게임 창 남은시간 영역]//
 function gameCountdown() {
   const countDown = new Date(); // 객체생성
-  let seconds = (fullCount - 50) - countDown.getSeconds();
-  
+  let seconds = 10 - countDown.getSeconds();
+  console.log(`카운트 다운 : ${seconds}`);
+
   if (seconds < 0){
     clearInterval(gameId);
     return;
   }
 
-  const count = seconds + '초'; // 변수선언
+  const count = seconds + ' 초'; // 변수선언
   const game = document.querySelector('#playGame_result_time'); // 객체 얻어오기
   game.innerHTML = count; //innerHTML = Html 안에 넣겠다
 }
