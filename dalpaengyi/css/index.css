@@ -1,0 +1,431 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 900;
+    src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2") format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+}
+/* 
+img{
+    width: 25%;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR';
+}
+
+.inner {
+    position: relative;
+    width: 1180px;
+    height: auto;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+a:link{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #666;
+}
+
+.clear {
+    clear: both;
+    content: '';
+}
+
+
+input:focus{
+    outline: none;
+}
+
+.line {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    height: 16px;
+    margin: 0 25px 12px 25px;
+    background-color: #555;
+}
+
+
+/* [헤더 영역] */
+.header {
+    position: relative;
+    min-width: 1180px;
+    width: 100%;
+    height: auto;
+    background-color: #1F2A3C;
+}
+
+.header .h-nav-top {
+    position: relative;
+    height: 80px;
+    background-color: #1F2A3C;
+
+}
+
+.header .h-nav-top .nav-top-info {
+    position: absolute;
+    width: 580px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    vertical-align: middle;
+    bottom: 0;
+    right: 0;
+}
+
+.header .h-nav-top .nav-top-info p {
+    padding-top: 8px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    width: 120px;
+}
+
+.header .h-nav-top .nav-top-info p:first-child {
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+.header .h-nav-gamelist{
+    position: relative;
+    height: 80px;
+    background-color: #1F2A3C;
+    text-align: right;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+
+
+.header .h-nav-gamelist a{
+    display: inline-block;
+    margin: 40px 0px 0px 70px;
+    text-decoration: none;
+}
+
+
+.header .h-nav-middle {
+    position: relative;
+    height: 85px;
+    background-color: #1F2A3C;
+}
+
+.header .h-nav-middle .nav-middle-logo {
+    float: left;
+    margin-top: 23.5px;
+}
+
+.header .h-nav-middle .nav-middle-service {
+    float: left;
+    width: 125px;
+    height: 40px;
+    background-color: #22865C;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 38px;
+    margin-left: 39px;
+    margin-top: 23px;
+    border-radius: 5px;
+}
+
+.header .h-nav-middle .nav-middle-menu {
+    float: left;
+    margin-top: 30px;
+}
+
+.header .h-nav-middle .nav-middle-menu p {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    color: #f4f4f4;
+    margin-left: 58px;
+}
+
+.header .h-nav-middle .nav-middle-menu p:first-child {
+    margin-left: 30px;
+}
+
+.header .h-nav-bottom {
+    position: relative;
+    height: 40px;
+    background-color: #142033;
+}
+
+
+.header .h-nav-bottom .nav-bottom-gnb #date{
+    float: left;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 5px;
+    background-color: #142033;
+    width: 190px;
+}
+
+
+.header .h-nav-bottom .nav-bottom-gnb #time{
+    float: right;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 5px;    
+    background-color: #142033;
+    width: 100px;
+}
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_01{
+    display: inline-block;
+    width: 320px;
+    height: 40px;
+}
+
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_02{
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+    text-align: right;
+}
+
+.header .h-nav-bottom .nav-bottom-gnb .gnb_02 p{
+    float: left;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    margin-top: 7px;
+}
+
+
+/* [메인 영역] */
+
+.main {
+    position: relative;
+    min-width: 1180px;
+    width: 100%;
+    height: 1200px;
+    background-color: #0E1520;
+}
+
+.main .m_game_area_info{
+    position:relative;
+    height: 100px;
+    background-color: #0E1520;
+}
+
+.main .m_game_area_info .game_info{
+    position: absolute;
+    width: 680px;
+    height: 44px;
+    background-color: #141D2D;
+    margin-top: 80px;
+}
+
+
+.main .m_game_area_info .game_info .line{
+    display: inline-block;
+    width: 1px;
+    /* height: 10px; */
+    height: 20px;
+    margin: 0 0 8px 0;
+    background-color: #555;
+}
+
+.main .m_game_area_info .game_info .game_info_round{
+    display: inline-block;
+    width: 338px;
+}
+
+.main .m_game_area_info .game_info p{
+    float: left;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 4px;
+
+}
+
+.main .m_game_area_info .game_info span{
+    float: left;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.main .m_game_area_info .game_info .game_info_time{
+    display: inline-block;
+    position: relative;
+    width: 330px;
+}
+
+.main .m_game_area_info .game_info .game_info_time img{
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+
+
+.main .m_game_area_01, .m_game_area_02{
+    float: left;
+    width: 336px;
+    height: 400px;
+    margin-bottom: 120px;
+    background-color: #151E2E;
+    margin-top: 60px;
+    
+}
+
+.main .game .game_coin_img{
+    margin-top: 50px;
+    text-align: center;
+
+}
+
+.main .game .game_coin_img img{
+    width: 160px;
+    height: 160px;
+}
+
+.main .game .game_bitcoin_btc{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #CC4D52;
+}
+
+
+
+
+
+
+.main .game .game_title{
+    width: 336px;
+    height: 38px;
+    background-color: #1F2A3C;
+    text-align: center;
+
+}
+
+.main .game .game_title p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    padding-top: 5px;
+}
+
+.main .m_game_area_02 .game_bitcoin_btc_02{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #0967C7;
+}
+
+
+.main .m_betting_result_area{
+    float: right;
+    width: 480px;
+    height: 530px;
+    background-color:#1B2435;
+    margin-top: 60px;
+    text-align: center;
+}
+
+
+.main .m_betting_result_area .betting_result_round span{
+    /* position: absolute; */
+    display: inline-block;
+    width: 230px;
+    height: 36px;
+    border: 1px solid #263245;
+    background-color: #151E2E;
+    margin-top: 30px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.main .m_betting_result_area .betting_result_title{
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main .m_betting_result_area .betting_result_coin{
+    margin-top: 10px;
+    text-align: center;
+    height: 180px;
+    background:url(../Image/logo_bitcoin.png) no-repeat;
+    background-size: 180px 180px;
+    background-position: center;
+}
+
+
+.main .m_betting_result_area .betting_result_number{
+    font-size: 22px;
+    font-weight: 700;
+    color : #CC4D52;
+    text-align: center;
+
+}
+
+.main .m_game_area{
+    float: left;
+    width: 680px;
+    height: 220px;
+    background-color: #151E2E;
+    margin-top: 60px;
+}
+
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="inner">
+                <div class="h-nav-top">
+                    <div class="nav-top-info">
+                        <p class="name_01" id="name1">달팽이<span>님</span></p>
+                        <p class="name_01" id="name2">1,200<span>원</span></p>
+                        <p class="name_01" id="name3">쪽지함</p>
+                        <p class="name_01" id="name4">공지사항</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="h-nav-gamelist">
+                    <a class="game_01" id="game1" href="./index.html">바카라</a>
+                    <a class="game_01" id="game2" href="./seotda/index.html">섯다</a>
+                    <a class="game_01" id="game3">달팽이</a>
+                    <a
+                        class="game_01"
+                        id="game4"
+                        href="./powerball/index.html"
+                        style="margin-right: 4px;">파워볼</a>
+                </div>
+
+                <div class="h-nav-middle">
+                    <div class="nav-middle-logo">
+                        <img src="./Image/DAL PAENG YI_logo.png">
+                    </div>
+
+                    <div class="nav-middle-service">
+                        달팽이게임
+                    </div>
+
+                    <div class="nav-middle-menu">
+                        <p class="menu" id="menu01">EOS 5분</p>
+                        <p class="menu" id="menu02">충전환전</p>
+                        <p class="menu" id="menu03">포인트전환+롤링내역</p>
+                        <p class="menu" id="menu04">배팅내역</p>
+                        <p class="menu" id="menu04">커뮤니티</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-nav-bottom">
+                <div class="inner">
+                    <div class="nav-bottom-gnb">
+                        <div class="gnb_01">
+                            <input
+                                class="date"
+                                id="date"
+                                style="padding-left: 10px; border:none;"
+                                readonly="readonly"></input>
+                            <input class="gnb_01_round" id="time" style="border:none;"></input>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="gnb_02">
+                            <p>Investing 기준 끝 두자리 합수 결과</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="inner">
+
+                <div class="m_game_area_info">
+                    <div class="game_info">
+
+                        <div class="game_info_round">
+                            <p style="margin-left: 83px;">회차</p>
+                            <span id="game_currentround" style="margin-left: 40px; color: #0967c7;"></span>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="game_info_time">
+                            <p style="margin-left: 83px;">남은시간</p>
+                            <span id="game_countdown" style="margin-left: 35px; color: #CC4D52;"></span>
+
+                            <img
+                                id="sound_image"
+                                src="https://user-images.githubusercontent.com/89179590/135798370-eec4a962-bd95-454a-96d8-957152951bf0.png"
+                                onclick="playSound();">
+                            <audio autoplay2="autoplay" id="game_sound">
+                                <source src="./sound/game_sound.mp3">
+                            </audio>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m_game_area_01">
+                    <div class="game">
+                        <div class="game_title">
+                            <p>비트코인</p>
+                        </div>
+                        <div class="game_coin_img">
+                            <img src="./Image/logo_bitcoin.png">
+                        </div>
+                        <div class="game_bitcoin_btc">
+                            <span>42,197.6</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="m_game_area_02" style="margin-left: 8px;">
+                    <div class="game">
+                        <div class="game_title">
+                            <p>이더리움</p>
+                        </div>
+                        <div class="game_coin_img">
+                            <img src="./Image/logo_ethereum.png">
+                        </div>
+                        <div class="game_bitcoin_btc_02">
+                            <span>2,909.65</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="m_betting_result_area" id="betting">
+
+                    <div class="betting_result_round" style="margin-top: 28px;">
+                        <span id="betting_result_round"></span>
+                    </div>
+
+                    <div class="betting_result_title">
+                        <p id="result_title">비트코인</p>
+                    </div>
+
+                    <div class="betting_result_coin">
+
+                    </div>
+
+                    <div class="betting_result_number">
+                        <span id="number_result">8</span>
+                    </div>
+
+                    <div id="value_result"></div>
+
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>
