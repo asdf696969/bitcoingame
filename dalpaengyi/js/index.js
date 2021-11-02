@@ -23,7 +23,6 @@ function showTime() {
 
 
 // [현재 시간 영역]//
-
   let hours = today.getHours();
   let minutes = today.getMinutes();
   let seconds = today.getSeconds();
@@ -64,6 +63,10 @@ function showCurrentround() {
   const round = (hours * fullMinutes) + minutes + '회'
   const totalround = document.querySelector('#game_currentround');
   totalround.innerHTML = round;
+
+  const raceRound = (hours * fullMinutes) + minutes + '회차'
+  const totalRaceRound = document.querySelector('#race_round');
+  totalRaceRound.innerHTML = raceRound;
 }
 roundId = setInterval(showCurrentround, 1000);
 
@@ -126,4 +129,134 @@ function showResultround() {
 countId = setInterval(showResultround, 1000);
 
 
+// [배팅영역]//
+const item = {
+  wonCoin : "[1등]",
+  normal : "[일반]",
+  odd : "홀",
+  even : "짝",
+  under : "언더",
+  over : "오버",
+  ethereum : "이더리움",
+  bitcoin : "비트코인",
+  ripple : "리플",
+  dogecoin : "도지코인",
+};
 
+const bettingRate = {
+  normal_odd : '1.93',
+  normal_under : '1.93',
+  normal_even : '1.93',
+  normal_over : '1.93',
+
+  wonCoin_ethereum : '3.72',
+  wonCoin_bitcoin : '3.72',
+  wonCoin_ripple : '3.72',
+  wonCoin_dogecoin : '3.72',
+};
+
+
+const priceAmount = {
+  price_1 : '10000',
+  price_3 : '30000',
+  price_5 : '50000',
+  price_7 : '70000',
+  price_10 : '100000',
+  price_50 : '500000',
+  price_100 : '1000000'
+  };
+
+
+function betting(selectId) {
+  reset()
+  resetButton();
+  selectButton(selectId);
+  inputDistributionName(selectId);
+  inputDistributionRate(selectId);
+}
+
+function resetButton() {
+  const buttons = document.querySelectorAll('.betting_button');
+  for(button of buttons){
+    button.style.opacity = '100%';
+  }
+}
+
+function selectButton(selectId) {
+  const button = document.querySelector('#' + selectId);
+  button.style.opacity = '50%';
+}
+
+function inputDistributionName(selectId) {
+  const name = getDistributionName(selectId);
+  const nameText = document.querySelector('#distribution_name');
+  nameText.value = name;
+}
+
+function getDistributionName(selectId){
+  let name = '';
+  const words = selectId.split('_');
+  for(word of words){
+    name += item[word] + ' + ';
+  }
+
+  name = name.substr(0, name.length - 3);
+  return name;
+}
+
+function inputDistributionRate(selectId) {
+  const rate = bettingRate[selectId];
+  const rateText = document.querySelector('#distribution_rate');
+  rateText.value = rate;
+}
+
+let totalPrice = 0;
+
+function inputBettingPrice(selectId) {
+  const price = priceAmount[selectId];
+  const priceText = document.querySelector('#betting_price');
+  totalPrice += Number(price);
+  priceText.value = totalPrice;
+
+  inputWonPrice();
+}
+
+function inputWonPrice() {
+  const priceText = document.querySelector('#betting_price');
+  const manualPrice = document.querySelector('#manual_price');
+  const rateText = document.querySelector('#distribution_rate');
+
+
+  const wonPrice = Math.round((Number(priceText.value) + Number(manualPrice.value)) * Number(rateText.value));
+  const wonPriceText = document.querySelector('#won_price');
+  wonPriceText.value = wonPrice;
+
+  // alert("베팅금"+Number(priceText.value));
+  // alert("수동베팅금"+Number(manualPrice.value));
+  // alert("배당률"+Number(rateText.value));
+}
+
+
+function reset() {
+  totalPrice = 0;
+
+  const nameText = document.querySelector('#distribution_name');
+  nameText.value = '';
+
+  const rateText = document.querySelector('#distribution_rate');
+  rateText.value = '';
+
+  const priceText = document.querySelector('#betting_price');
+  priceText.value = '';
+
+  resetButton();
+
+  const manualPrice = document.querySelector('#manual_price');
+  manualPrice.value = '';
+
+  const  wonPrice = document.querySelector('#won_price');
+  wonPrice.value = '';
+
+
+
+}
