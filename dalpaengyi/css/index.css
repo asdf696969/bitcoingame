@@ -921,3 +921,28 @@ input:focus {
     width: 116px;
     margin-left:1px;
 }
+
+
+
+
+#Copyright_Message span {
+    font-size: 15px;
+    font-family: sans-serif;
+    position: fixed;
+    width: 500px;
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -100px;
+
+    border-radius: 10px;
+    box-shadow: 0px 0px 34px 2px rgba(242, 191, 191, 1);
+    padding: 10px 10px 10px 35px;
+
+    line-height: 1.5;
+    color: #555;
+
+    background: #ffecec url('https://tistory4.daumcdn.net/tistory/770263/skin/images/warning.png') no-repeat 10px 50%;
+    border: 1px solid #f5aca6;
+}

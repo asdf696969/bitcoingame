@@ -5,7 +5,250 @@
         <title>Title</title>
         <link rel="stylesheet" href="css/index.css">
     </head>
-    <body>
+    <body
+        oncontextmenu='return false'
+        onselectstart='return false'
+        ondragstart='return false'>
+
+        <script>
+            (function () {
+                // ===========================================================================
+                // ====== 우클릭, 드래그, 복사 차단
+                // =================================================================================
+                var events = ["contextmenu", "selectstart", "dragstart", "copy", "cut"];
+
+                events.forEach(function (event) {
+                    window.addEventListener(event, blockEvent, true);
+                })
+
+                function blockEvent(e) {
+                    e.preventDefault();
+                }
+                // ===========================================================================
+                // ====== 개발자 메뉴 (F12) 차단
+                // =================================================================================
+                window.addEventListener('keydown', blockDeveloperMenu, true);
+
+                function blockDeveloperMenu(e) {
+                    if (e.keyCode === 123) { // F12
+                        blockEvent(e);
+                    }
+                    if (e.ctrlKey && e.shiftKey) {
+                        var code = e.keyCode;
+                        // 개발자 도구를 여는 Ctrl + Shift + 키 조합
+                        if (code === 67 || code === 69 || code === 73 || code === 74 || code === 75 || code === 77 || code === 83) {
+                            blockEvent(e);
+                        }
+                    }
+                }
+
+                setInterval(function () {
+                    debugger;
+                }, 200);
+                // ===========================================================================
+                // ====== 애드온 (pig toolbox 등) 차단
+                // =================================================================================
+                var event,
+                    received = false;
+
+                refreshEvent();
+
+                window.addEventListener("contextmenu", function (e) {
+                    if (e === event) {
+                        received = true;
+                    }
+                }, true);
+
+                setInterval(function () {
+                    received = false;
+                    window.dispatchEvent(event);
+                    received
+                        ? hideMessage()
+                        : showMessage();
+                    refreshEvent();
+                }, 200);
+
+                function refreshEvent() {
+                    if (event && !event.cancelBubble) {
+                        return;
+                    }
+                    event = document.createEvent("MouseEvents");
+                    event.initMouseEvent(
+                        "contextmenu",
+                        true,
+                        true,
+                        window,
+                        1,
+                        50,
+                        121,
+                        50,
+                        50,
+                        false,
+                        false,
+                        false,
+                        false,
+                        2,
+                        null
+                    );
+                }
+                // ===========================================================================
+                // ====== 자바스크립트 비활성화 (Disable Javascript) 시 메세지 띄우기
+                // =================================================================================
+                var timer = null;
+                function showMessage() {
+                    clearInterval(timer);
+                    timer = null;
+                }
+                function hideMessage() {
+                    if (timer === null) {
+                        timer = setInterval(reveal, 450);
+                    }
+                }
+                function reveal() {
+                    cl().toggle("cm-hide");
+                    cl().toggle("cm-hide-2");
+                }
+                function cl() {
+                    return Copyright_Message.classList;
+                }
+
+                window.addEventListener('visibilitychange', function () {
+                    // 페이지가 숨겨질 시 animation을 정지함
+                    if (document.visibilityState === "hidden") {
+                        cl().remove("cm-hide", "cm-hide-2");
+                        void Copyright_Message.offsetWidth;
+                        showMessage();
+                    } else {
+                        cl().add("cm-hide");
+                        cl().remove("cm-hide-2");
+                        hideMessage();
+                    }
+                }, true);
+
+                hideMessage();
+            })();
+        </script>
+        <!--------------------------------------------------------------- 자바스크립트 비활성화 후
+        새로고침 시 메세지 띄우기 ---------------------------------------------------------------->
+        <noscript>
+            <style>
+                #Copyright_Message > span {
+                    display: none;
+                }
+                .cm-no-js {
+                    background: white;
+                    visibility: visible!important;
+                }
+            </style>
+        </noscript>
+        <!--------------------------------------------------------------- 드래그 차단
+        ---------------------------------------------------------------->
+        <style>
+            *:not(input):not(textarea):not(code):not(blockquote):not(pre) {
+                user-select: none !important;
+                -webkit-user-select: none !important;
+                -webkit-touch-callout: none !important;
+            }
+        </style>
+        <!-- 저작권 메세지 CSS -->
+        <style>
+            .cm-overlay {
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                overflow-x: hidden;
+                z-index: 2147483647;
+            }
+
+            #Copyright_Message,
+            .cm-no-js {
+                visibility: hidden;
+            }
+
+            #Copyright_Message.cm-hide {
+                animation: 1s cm-reveal 500ms forwards;
+            }
+            #Copyright_Message.cm-hide-2 {
+                animation: 1s cm-reveal-2 500ms forwards;
+            }
+
+            @keyframes cm-reveal {
+                from {
+                    opacity: 0;
+                    visibility: visible;
+                }
+                to {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            @keyframes cm-reveal-2 {
+                from {
+                    opacity: 0;
+                    visibility: visible;
+                }
+                to {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            @media print {
+                noscript {
+                    display: none;
+                }
+            }
+        </style>
+        <!--------------------------------------------------------------- 저작권 안내 메세지,
+        <span> 내의 글을 원하는 대로 수정하세요.
+        ---------------------------------------------------------------->
+        <div>
+            <div class="cm-overlay cm-no-js"></div>
+            <div id="Copyright_Message" class="cm-overlay cm-hide">
+                <span>
+                    복제를 금지하는 사이트에서 콘텐츠를 복사해 사용하려 하고 있습니다.
+                    <br>
+                    이 콘텐츠를 블로그나 웹사이트의 콘텐츠로 사용하면 저작권 문제로 처벌 받을 수 있습니다.
+                </span>
+                <noscript class="cm-no-js">
+                    <!-- 자바스크립트 비활성화 시에 보여지는 메세지 -->
+                    <span>
+                        이 페이지를 보기 위해서는 자바스크립트가 필요합니다.
+                        <br>
+                        사이트 설정에서 자바스크립트를 사용하도록 설정해주세요.
+                    </span>
+                </noscript>
+            </div>
+            <!--------------------------------------------------------------- 아래 CSS를 수정하여
+            메세지의 스타일을 변경하세요.
+            ---------------------------------------------------------------->
+            <style>
+                #Copyright_Message span {
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    position: fixed;
+                    width: 500px;
+                    max-width: 90%;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: -250px;
+                    margin-top: -100px;
+
+                    border-radius: 10px;
+                    box-shadow: 0 0 34px 2px rgba(242, 191, 191, 1);
+                    padding: 10px 10px 10px 35px;
+
+                    line-height: 1.5;
+                    color: #555;
+
+                    background: #ffecec url("https://tistory4.daumcdn.net/tistory/770263/skin/images/warning.png") no-repeat 10px 50%;
+                    border: 1px solid #f5aca6;
+                }
+            </style>
+        </div>
+
         <div class="header">
             <div class="inner">
                 <div class="h-nav-top">
@@ -132,7 +375,6 @@
                     </div>
                 </div>
 
-                
                 <div class="m_coin_info">
                     <div class="coin">
                         <div class="coin_name">
@@ -149,7 +391,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="m_coin_info" style="margin-right: 0px;">
                     <div class="coin">
                         <div class="coin_name">
@@ -178,16 +420,12 @@
                         </div>
 
                         <div class="race_gauge_start">
-                            <img src= "./Image/gauge_start_01.png">
+                            <img src="./Image/gauge_start_01.png">
                         </div>
 
-                        <div class="race_gauge_empty">
-                            
-                        </div>
+                        <div class="race_gauge_empty"></div>
 
-                        <div id="race_gauge_bar">
-                            
-                        </div>
+                        <div id="race_gauge_bar"></div>
 
                         <div id="race_ethcoin_img">
                             <img src="./Image/logo_ethereum.png">
@@ -197,29 +435,22 @@
                             <img src="./Image/gauge_end.png">
                         </div>
 
-                        <div id="race_ethcoin_result">
-                            
-                        </div>
+                        <div id="race_ethcoin_result"></div>
                     </div>
                     <div class="clear"></div>
 
-                    
                     <div class="race_bitcoin">
                         <div class="race_coin_number">
                             <img src="./Image/num_02.png">
                         </div>
 
                         <div class="race_gauge_start">
-                            <img src= "./Image/gauge_start_02.png">
+                            <img src="./Image/gauge_start_02.png">
                         </div>
 
-                        <div class="race_gauge_empty">
-                            
-                        </div>
+                        <div class="race_gauge_empty"></div>
 
-                        <div id="race_gauge_bar">
-                            
-                        </div>
+                        <div id="race_gauge_bar"></div>
 
                         <div id="race_bitcoin_img">
                             <img src="./Image/logo_bitcoin.png">
@@ -229,9 +460,7 @@
                             <img src="./Image/gauge_end.png">
                         </div>
 
-                        <div id="race_bitcoin_result">
-                            
-                        </div>
+                        <div id="race_bitcoin_result"></div>
                     </div>
 
                     <div class="clear"></div>
@@ -242,16 +471,12 @@
                         </div>
 
                         <div class="race_gauge_start">
-                            <img src= "./Image/gauge_start_01.png">
+                            <img src="./Image/gauge_start_01.png">
                         </div>
 
-                        <div class="race_gauge_empty">
-                            
-                        </div>
+                        <div class="race_gauge_empty"></div>
 
-                        <div id="race_gauge_bar">
-                            
-                        </div>
+                        <div id="race_gauge_bar"></div>
 
                         <div id="race_ripplecoin_img">
                             <img src="./Image/logo_ripple.png">
@@ -261,9 +486,7 @@
                             <img src="./Image/gauge_end.png">
                         </div>
 
-                        <div id="race_ripplecoin_result">
-                            
-                        </div>
+                        <div id="race_ripplecoin_result"></div>
                     </div>
 
                     <div class="clear"></div>
@@ -274,16 +497,12 @@
                         </div>
 
                         <div class="race_gauge_start">
-                            <img src= "./Image/gauge_start_02.png">
+                            <img src="./Image/gauge_start_02.png">
                         </div>
 
-                        <div class="race_gauge_empty">
-                            
-                        </div>
+                        <div class="race_gauge_empty"></div>
 
-                        <div id="race_gauge_bar">
-                            
-                        </div>
+                        <div id="race_gauge_bar"></div>
 
                         <div id="race_dogecoin_img">
                             <img src="./Image/logo_dogecoin.png">
@@ -293,13 +512,9 @@
                             <img src="./Image/gauge_end.png">
                         </div>
 
-                        <div id="race_dogecoin_result">
-                            
-                        </div>
+                        <div id="race_dogecoin_result"></div>
                     </div>
                 </div>
-
-                
 
                 <!-- 결과영역 -->
                 <div class="m_betting_result_area" id="betting">
@@ -312,17 +527,13 @@
                         <p id="result_title">비트코인</p>
                     </div>
 
-                    <div class="betting_result_coin">
-
-                    </div>
+                    <div class="betting_result_coin"></div>
 
                     <div class="betting_result_number">
                         <img src="./Image/num_02.png">
                     </div>
 
-                    <div id="value_result">
-                        
-                    </div>
+                    <div id="value_result"></div>
 
                 </div>
 
@@ -334,10 +545,31 @@
                             <p>[일반] 홀 짝 언더 오버</p>
                         </div>
                         <div class="game_button" id="betting_button2">
-                            <img alt="01" class="betting_button" id="normal_odd" onclick="betting(this.id);" src="./Image/betting_odd.png" style="margin-left: 4px;">
-                            <img alt="02" class="betting_button" id="normal_under" onclick="betting(this.id);" src="./Image/betting_under.png">
-                            <img alt="03" class="betting_button" id="normal_even" onclick="betting(this.id);" src="./Image/betting_even.png">
-                            <img alt="04" class="betting_button" id="normal_over" onclick="betting(this.id);" src="./Image/betting_over.png">
+                            <img
+                                alt="01"
+                                class="betting_button"
+                                id="normal_odd"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_odd.png"
+                                style="margin-left: 4px;">
+                            <img
+                                alt="02"
+                                class="betting_button"
+                                id="normal_under"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_under.png">
+                            <img
+                                alt="03"
+                                class="betting_button"
+                                id="normal_even"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_even.png">
+                            <img
+                                alt="04"
+                                class="betting_button"
+                                id="normal_over"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_over.png">
                         </div>
                     </div>
 
@@ -346,14 +578,33 @@
                             <p>[1등] 1등 코인</p>
                         </div>
                         <div class="game_button">
-                            <img alt="09" class="betting_button" id="wonCoin_ethereum" onclick="betting(this.id);" src="./Image/betting_ethereum.png" style="margin-left: 4px;">
-                            <img alt="10" class="betting_button" id="wonCoin_bitcoin" onclick="betting(this.id);" src="./Image/betting_bitcoin.png">
-                            <img alt="11" class="betting_button" id="wonCoin_ripple" onclick="betting(this.id);" src="./Image/betting_ripple.png">
-                            <img alt="12" class="betting_button" id="wonCoin_dogecoin" onclick="betting(this.id);" src="./Image/betting_dogecoin.png">
+                            <img
+                                alt="09"
+                                class="betting_button"
+                                id="wonCoin_ethereum"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_ethereum.png"
+                                style="margin-left: 4px;">
+                            <img
+                                alt="10"
+                                class="betting_button"
+                                id="wonCoin_bitcoin"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_bitcoin.png">
+                            <img
+                                alt="11"
+                                class="betting_button"
+                                id="wonCoin_ripple"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_ripple.png">
+                            <img
+                                alt="12"
+                                class="betting_button"
+                                id="wonCoin_dogecoin"
+                                onclick="betting(this.id);"
+                                src="./Image/betting_dogecoin.png">
                         </div>
                     </div>
-
-                    
 
                 </div>
 
@@ -362,47 +613,96 @@
                         <p>배 당 명</p>
                     </div>
                     <div class="betting_01_input" style="margin-top: 28px;">
-                        <input type="text" id = "distribution_name" value="" readonly>
+                        <input type="text" id="distribution_name" value="" readonly="readonly">
                     </div>
 
                     <div class="betting_01">
                         <p>배 당 률</p>
                     </div>
                     <div class="betting_01_input" style="margin-top: 10px;">
-                        <input type="text" id = "distribution_rate" value="" readonly>
+                        <input type="text" id="distribution_rate" value="" readonly="readonly">
                     </div>
 
                     <div class="betting_01">
                         <p>베 팅 금</p>
                     </div>
                     <div class="betting_01_input" style="margin-top: 10px;">
-                        <input type="text" id = "betting_price" value="" readonly>
+                        <input type="text" id="betting_price" value="" readonly="readonly">
                     </div>
 
                     <div class="betting_01">
                         <p>수동베팅금</p>
                     </div>
                     <div class="betting_01_input" style="margin-top: 10px;">
-                        <input type="text" id="manual_price" onkeyup="inputWonPrice()" >
+                        <input type="text" id="manual_price" onkeyup="inputWonPrice()">
                     </div>
 
                     <div class="betting_01">
                         <p>예상당첨금</p>
                     </div>
                     <div class="betting_01_input" style="margin-top: 10px;">
-                        <input type="text" id="won_price" readonly>
+                        <input type="text" id="won_price" readonly="readonly">
                     </div>
                 </div>
                 <div class="m_betting_button">
-                    <img alt="38" class="price_button" id="price_1" onclick="inputBettingPrice(this.id);" src="./Image/price_01.png">
-                    <img alt="39" class="price_button" id="price_3" onclick="inputBettingPrice(this.id);" src="./Image/price_02.png">
-                    <img alt="40" class="price_button" id="price_5" onclick="inputBettingPrice(this.id);" src="./Image/price_03.png">
-                    <img alt="41" class="price_button" id="price_7" onclick="inputBettingPrice(this.id);" src="./Image/price_04.png">
-                    <img alt="42" class="price_button" id="price_10" onclick="inputBettingPrice(this.id);" src="./Image/price_05.png" style="width:157px; margin-left: 0px;">
-                    <img alt="43" class="price_button" id="price_50" onclick="inputBettingPrice(this.id);" src="./Image/price_06.png" style="width:157px; margin-left: 0px;">
-                    <img alt="44" class="price_button" id="price_100" onclick="inputBettingPrice(this.id);" src="./Image/price_07.png" style="width:157px; margin-left: 0px;">
-                    <img alt="45" class="reset_button" id="reset" onclick="reset();" src="./Image/betting_reset.png" style="width: 480px; margin: 3px 0;">
-                    <img alt="46" class="enter_button" id="enter" src="./Image/betting_enter.png" style="width: 480px;">
+                    <img
+                        alt="38"
+                        class="price_button"
+                        id="price_1"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_01.png">
+                    <img
+                        alt="39"
+                        class="price_button"
+                        id="price_3"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_02.png">
+                    <img
+                        alt="40"
+                        class="price_button"
+                        id="price_5"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_03.png">
+                    <img
+                        alt="41"
+                        class="price_button"
+                        id="price_7"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_04.png">
+                    <img
+                        alt="42"
+                        class="price_button"
+                        id="price_10"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_05.png"
+                        style="width:157px; margin-left: 0px;">
+                    <img
+                        alt="43"
+                        class="price_button"
+                        id="price_50"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_06.png"
+                        style="width:157px; margin-left: 0px;">
+                    <img
+                        alt="44"
+                        class="price_button"
+                        id="price_100"
+                        onclick="inputBettingPrice(this.id);"
+                        src="./Image/price_07.png"
+                        style="width:157px; margin-left: 0px;">
+                    <img
+                        alt="45"
+                        class="reset_button"
+                        id="reset"
+                        onclick="reset();"
+                        src="./Image/betting_reset.png"
+                        style="width: 480px; margin: 3px 0;">
+                    <img
+                        alt="46"
+                        class="enter_button"
+                        id="enter"
+                        src="./Image/betting_enter.png"
+                        style="width: 480px;">
 
                 </div>
                 <div class="clear"></div>
