@@ -5,207 +5,7 @@
         <title>Title</title>
         <link rel="stylesheet" href="css/index.css">
     </head>
-    <body
-        oncontextmenu='return false'
-        onselectstart='return false'
-        ondragstart='return false'>
-
-        <script>
-            (function () {
-                // ===========================================================================
-                // ====== 우클릭, 드래그, 복사 차단
-                // =================================================================================
-                var events = ["contextmenu", "selectstart", "dragstart", "copy", "cut"];
-
-                events.forEach(function (event) {
-                    window.addEventListener(event, blockEvent, true);
-                })
-
-                function blockEvent(e) {
-                    e.preventDefault();
-                }
-                // ===========================================================================
-                // ====== 개발자 메뉴 (F12) 차단
-                // =================================================================================
-                window.addEventListener('keydown', blockDeveloperMenu, true);
-
-                function blockDeveloperMenu(e) {
-                    if (e.keyCode === 123) { // F12
-                        blockEvent(e);
-                    }
-                    if (e.ctrlKey && e.shiftKey) {
-                        var code = e.keyCode;
-                        // 개발자 도구를 여는 Ctrl + Shift + 키 조합
-                        if (code === 67 || code === 69 || code === 73 || code === 74 || code === 75 || code === 77 || code === 83) {
-                            blockEvent(e);
-                        }
-                    }
-                }
-
-                setInterval(function () {
-                    debugger;
-                }, 200);
-                // ===========================================================================
-                // ====== 애드온 (pig toolbox 등) 차단
-                // =================================================================================
-                var event,
-                    received = false;
-
-                refreshEvent();
-
-                window.addEventListener("contextmenu", function (e) {
-                    if (e === event) {
-                        received = true;
-                    }
-                }, true);
-
-                setInterval(function () {
-                    received = false;
-                    window.dispatchEvent(event);
-                    received
-                        ? hideMessage()
-                        : showMessage();
-                    refreshEvent();
-                }, 200);
-
-                function refreshEvent() {
-                    if (event && !event.cancelBubble) {
-                        return;
-                    }
-                    event = document.createEvent("MouseEvents");
-                    event.initMouseEvent(
-                        "contextmenu",
-                        true,
-                        true,
-                        window,
-                        1,
-                        50,
-                        121,
-                        50,
-                        50,
-                        false,
-                        false,
-                        false,
-                        false,
-                        2,
-                        null
-                    );
-                }
-                // ===========================================================================
-                // ====== 자바스크립트 비활성화 (Disable Javascript) 시 메세지 띄우기
-                // =================================================================================
-                var timer = null;
-                function showMessage() {
-                    clearInterval(timer);
-                    timer = null;
-                }
-                function hideMessage() {
-                    if (timer === null) {
-                        timer = setInterval(reveal, 450);
-                    }
-                }
-                function reveal() {
-                    cl().toggle("cm-hide");
-                    cl().toggle("cm-hide-2");
-                }
-                function cl() {
-                    return Copyright_Message.classList;
-                }
-
-                window.addEventListener('visibilitychange', function () {
-                    // 페이지가 숨겨질 시 animation을 정지함
-                    if (document.visibilityState === "hidden") {
-                        cl().remove("cm-hide", "cm-hide-2");
-                        void Copyright_Message.offsetWidth;
-                        showMessage();
-                    } else {
-                        cl().add("cm-hide");
-                        cl().remove("cm-hide-2");
-                        hideMessage();
-                    }
-                }, true);
-
-                hideMessage();
-            })();
-        </script>
-        <!--------------------------------------------------------------- 자바스크립트 비활성화 후
-        새로고침 시 메세지 띄우기 ---------------------------------------------------------------->
-        <noscript>
-            <style>
-                #Copyright_Message > span {
-                    display: none;
-                }
-                .cm-no-js {
-                    background: white;
-                    visibility: visible!important;
-                }
-            </style>
-        </noscript>
-        <!--------------------------------------------------------------- 드래그 차단
-        ---------------------------------------------------------------->
-        <style>
-            *:not(input):not(textarea):not(code):not(blockquote):not(pre) {
-                user-select: none !important;
-                -webkit-user-select: none !important;
-                -webkit-touch-callout: none !important;
-            }
-        </style>
-        <!-- 저작권 메세지 CSS -->
-        <style>
-            .cm-overlay {
-                height: 100%;
-                width: 100%;
-                position: fixed;
-                left: 0;
-                top: 0;
-                overflow-x: hidden;
-                z-index: 2147483647;
-            }
-
-            #Copyright_Message,
-            .cm-no-js {
-                visibility: hidden;
-            }
-
-            #Copyright_Message.cm-hide {
-                animation: 1s cm-reveal 500ms forwards;
-            }
-            #Copyright_Message.cm-hide-2 {
-                animation: 1s cm-reveal-2 500ms forwards;
-            }
-
-            @keyframes cm-reveal {
-                from {
-                    opacity: 0;
-                    visibility: visible;
-                }
-                to {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-            @keyframes cm-reveal-2 {
-                from {
-                    opacity: 0;
-                    visibility: visible;
-                }
-                to {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-
-            @media print {
-                noscript {
-                    display: none;
-                }
-            }
-        </style>
-        <!--------------------------------------------------------------- 저작권 안내 메세지,
-        <span> 내의 글을 원하는 대로 수정하세요.
-        ---------------------------------------------------------------->
-        <div>
-            <div class="cm-overlay cm-no-js"></div>
+    <body>
             <div id="Copyright_Message" class="cm-overlay cm-hide">
                 <noscript class="cm-no-js">
                     <!-- 자바스크립트 비활성화 시에 보여지는 메세지 -->
@@ -390,7 +190,7 @@
                     </div>
                 </div>
 
-                <div class="m_coin_info">
+                <!-- <div class="m_coin_info">
                     <div class="coin">
                         <div class="coin_name">
                             <p>이더리움</p>
@@ -456,7 +256,7 @@
                             <img src="./Image/num_04.png">
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="m_race_area">
                     <div class="race_round">
@@ -572,21 +372,19 @@
                         <span id="betting_result_round"></span>
                     </div>
 
+                    <div class="betting_result_coin"></div>
+
                     <div class="betting_result_title">
                         <p id="result_title">비트코인</p>
                     </div>
 
-                    <div class="betting_result_coin"></div>
-
-                    <div class="betting_result_number">
+                    <!-- <div class="betting_result_number">
                         <img src="./Image/num_02.png">
-                    </div>
+                    </div> -->
 
                     <div id="value_result"></div>
 
                 </div>
-
-                <div class="clear"></div>
 
                 <div class="m_game_area">
                     <div class="game">
@@ -657,7 +455,7 @@
 
                 </div>
 
-                <div class="m_betting_area" id="betting">
+                <!-- <div class="m_betting_area" id="betting">
                     <div class="betting_01" style="margin-top: 28px;">
                         <p>배 당 명</p>
                     </div>
@@ -753,7 +551,7 @@
                         src="./Image/betting_enter.png"
                         style="width: 480px;">
 
-                </div>
+                </div> -->
                 <div class="clear"></div>
             </div>
         </div>

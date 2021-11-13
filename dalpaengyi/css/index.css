@@ -370,7 +370,7 @@ input:focus {
 .main .m_race_area {
     position: relative;
     float: left;
-    width: 680px;
+    width: 1180px;
     height: 668px;
     background-color: #151E2E;
     text-align: center;
@@ -437,7 +437,7 @@ input:focus {
 
 .main .race_ethcoin .race_gauge_empty {
     position: absolute;
-    width: 400px;
+    width: 850px;
     height: 22px;
     background-color: #0E1520;
     vertical-align: middle;
@@ -450,7 +450,7 @@ input:focus {
     margin-left: 20px;
     z-index: 10;
     top: -9px;
-    left: 460px;
+    left: 955px;
 }
 
 .main .race_ethcoin .race_gauge_end img {
@@ -464,7 +464,7 @@ input:focus {
     width: 62px;
     height: 63px;
     background-image: url("../Image/gauge_result.png");
-    left: 578px;
+    left: 1077px;
     top: -9px;
 }
 
@@ -524,7 +524,7 @@ input:focus {
 
 .main .race_bitcoin .race_gauge_empty {
     position: absolute;
-    width: 400px;
+    width: 850px;
     height: 22px;
     background-color: #0E1520;
     vertical-align: middle;
@@ -537,7 +537,7 @@ input:focus {
     margin-left: 20px;
     z-index: 10;
     top: -9px;
-    left: 460px;
+    left: 955px;
 }
 
 .main .race_bitcoin .race_gauge_end img {
@@ -551,7 +551,7 @@ input:focus {
     width: 62px;
     height: 63px;
     background-image: url("../Image/gauge_result.png");
-    left: 578px;
+    left: 1077px;
     top: -9px;
 }
 
@@ -613,7 +613,7 @@ input:focus {
 
 .main .race_ripplecoin .race_gauge_empty {
     position: absolute;
-    width: 400px;
+    width: 850px;
     height: 22px;
     background-color: #0E1520;
     vertical-align: middle;
@@ -626,7 +626,7 @@ input:focus {
     margin-left: 20px;
     z-index: 10;
     top: -9px;
-    left: 460px;
+    left: 955px;
 }
 
 .main .race_ripplecoin .race_gauge_end img {
@@ -640,7 +640,7 @@ input:focus {
     width: 62px;
     height: 63px;
     background-image: url("../Image/gauge_result.png");
-    left: 578px;
+    left: 1077px;
     top: -9px;
 }
 
@@ -702,7 +702,7 @@ input:focus {
 
 .main .race_dogecoin .race_gauge_empty {
     position: absolute;
-    width: 400px;
+    width: 850px;
     height: 22px;
     background-color: #0E1520;
     vertical-align: middle;
@@ -715,7 +715,7 @@ input:focus {
     margin-left: 20px;
     z-index: 10;
     top: -9px;
-    left: 460px;
+    left: 955px;
 }
 
 .main .race_dogecoin .race_gauge_end img {
@@ -729,7 +729,7 @@ input:focus {
     width: 62px;
     height: 63px;
     background-image: url("../Image/gauge_result.png");
-    left: 578px;
+    left: 1077px;
     top: -9px;
 }
 
@@ -753,14 +753,14 @@ input:focus {
 .main .m_betting_result_area {
     float: right;
     width: 480px;
-    height: 668px;
+    height: 480px;
     background-color: #1B2435;
     text-align: center;
     margin-bottom: 30px;
 }
 
 .main .m_betting_result_area .betting_result_round {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 .main .m_betting_result_area .betting_result_round span {
@@ -779,11 +779,11 @@ input:focus {
     font-size: 20px;
     color: #fff;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 12px;
 }
 
 .main .m_betting_result_area .betting_result_coin {
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
     height: 180px;
     background: url("../Image/logo_bitcoin.png") no-repeat;
