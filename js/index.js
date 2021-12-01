@@ -1,3 +1,6 @@
+const bitUrl = 'https://api.cryptonator.com/api/ticker/btc-usd';
+const ethUrl = 'https://api.cryptonator.com/api/ticker/eth-usd';
+
 let timeId = 0;
 let countId = 0;
 let bitHandId = 0;
@@ -7,6 +10,8 @@ let roundId = 0;
 const fullCount = 60;
 const fullMinutes = 60;
 let soundOn = true;
+let bitVal = 0;
+let ethVal = 0;
 
 //[오늘 날짜 영역]//
 function showTime() {  
@@ -111,15 +116,47 @@ function showCountdown() {
 
 //[카드 쪼는 창 뜨게하기 영역]//
   const result = document.querySelector('#resultWindow');
-  
+
+  // const getData = async () => {
+  //   const bitRes = await axios.get(bitUrl);
+  //   let bitValue = parseFloat(bitRes.data.ticker.price);
+  //   bitVal = bitValue.toFixed(2);
+  //   console.log(`bit price : ${bitVal}`);
+  // }
+
+  // const getEth = async () => {
+  //   const ethRes = await axios.get(ethUrl);
+  //   let ethValue = parseFloat(ethRes.data.ticker.price);
+  //   ethVal = ethValue.toFixed(2);
+  //   console.log(`eth price : ${ethVal}`);
+  // }
+
+  const getData = () => {
+    axios.get(bitUrl).then(res => {
+      let bitValue = parseFloat(res.data.ticker.price);
+      bitVal = bitValue.toFixed(2);
+    });
+  }
+
+  const getEth = () => {
+    axios.get(ethUrl).then(res => {
+      let ethValue = parseFloat(res.data.ticker.price);
+      ethVal = ethValue.toFixed(2);
+    });
+  }
+
   if(seconds === 60){
-    getCardResult();
-    showBackCard();
+    getData();
+    getEth();
+    
     showAniBackCard()
     gameId = setInterval(gameCountdown, 1000);
     result.style.display = 'block';
   }
+
   else if(seconds === 58){
+    showBackCard();
+    getCardResult();
     hideSpadeCloverBackCard();
     bitHandId = setInterval(bitHandMove, 80);
     hideDiamondBackCard();
@@ -240,11 +277,11 @@ function playSound() {
 
 //******* [카드 숫자값 가져오는 영역]*******//
 function getBitcoinNumber(){
-  return coinNumber('42,192.3');
+  return coinNumber(bitVal.toString());
 }
 
 function getEthereumNumber(){
-  return coinNumber('2,909.71');
+  return coinNumber(ethVal.toString());
 }
 
 function coinNumber(number){
@@ -356,10 +393,10 @@ function showNumberResult(){
 }
 
 function returnshowNumberResult(){
-  const returnAddNumber1 = document.querySelector('#playGame_01_number');
-  const returnAddNumber2 = document.querySelector('#playGame_02_number');
-  returnAddNumber1.innerHTML = '?'
-  returnAddNumber2.innerHTML = '?'
+  const returnAddNumber1 = document.querySelector('#bit_result');
+  const returnAddNumber2 = document.querySelector('#eth_result');
+  returnAddNumber1.innerHTML = bitVal.toString();
+  returnAddNumber2.innerHTML = ethVal.toString();
 }
 
 //[지난 회차 카드 쪼기영역]//
@@ -399,8 +436,8 @@ function getGameValue(){
 
   const bitSum = String(bitNum[0] + bitNum[1]);
   const ethSum = String(ethNum[0] + ethNum[1]);
-  bitResult = bitSum[bitSum.length -1];
-  ethResult = ethSum[ethSum.length -1];
+  const bitResult = bitSum[bitSum.length -1];
+  const ethResult = ethSum[ethSum.length -1];
 
   let resultObject =  { 
     "name" : "",

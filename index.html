@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <link rel="stylesheet" href="css/index.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <script>
@@ -38,9 +39,6 @@
                     }
                 }
 
-                setInterval(function () {
-                    debugger;
-                }, 200);
                 // ===========================================================================
                 // ====== 애드온 (pig toolbox 등) 차단
                 // =================================================================================
@@ -391,7 +389,7 @@
                             
                             <img id="sound_image" src="https://user-images.githubusercontent.com/89179590/135798370-eec4a962-bd95-454a-96d8-957152951bf0.png" onclick="playSound();"> 
                             <audio autoplay id="game_sound">
-                                <source src="/baccarat/sound/game_sound.mp3">
+                                <!-- <source src="./sound/game_sound.mp3"> -->
                             </audio>
 
                             
@@ -409,10 +407,10 @@
                             <img src="./Image/Bitcoin_logo.png">
                         </div>
                         <div class="game_bitcoin_btc">
-                            <span>42,197.6</span>
+                            <span id="bit_result"></span>
                         </div>
                         <div class="game_round">
-                            <p id="bitRound">제 132회차</p>
+                            <p id="bitRound"></p>
                         </div>
                         <div class="game_card_backside_01">
                             <img src="./Image/card_backside_01.png">
@@ -433,7 +431,7 @@
                             <img src="./Image/Ethereum_logo.png">
                         </div>
                         <div class="game_bitcoin_btc_02">
-                            <span>2,909.65</span>
+                            <span id="eth_result"></span>
                         </div>
                         <div class="game_round">
                             <p id="ethRound">제 132회차</p>
@@ -442,13 +440,10 @@
                             <img src="./Image/card_backside_02.png">
                             <img src="./Image/card_backside_02.png">
                         </div>
-
-
                     </div>
                 </div>
 
                 <div class="m_betting_result_area" id="betting">
-
                     <div class="betting_result_round" style="margin-top: 28px;">
                         <span id="betting_result_round"></span>
                     </div>
@@ -494,19 +489,12 @@
                             <div class="hand_01" id="patekPhilippe">
                                 <img src="./Image/PatekPhilippe.png">
                             </div>
-
                             <div id="diamond">
                             </div>
-
                             <div id="diamond_back">
-                                
                             </div>
-
                             <div id="diamond_ani">
-
                             </div>
-                            
-                            <!-- <img src="https://user-images.githubusercontent.com/89179590/135401776-0594d8e4-e71a-427f-8ab5-a99a043c7c54.png" id="dia"> -->
                         </div>
                         <div class="playGame_01_cardfront">
                         </div>
@@ -556,7 +544,7 @@
                     <span id="playGame_result_time">10초</span>
                 </div>
         </div>
-        <script src="js/index.js"></script>
+        <script type="module" src="js/index.js"></script>
     </body>
 </html>
 
